@@ -2,6 +2,7 @@ function CheckStringLength(string, maxLength) {
   return string.length <= maxLength;
 }
 
+CheckStringLength('проверяемая строка', 20);
 
 function isPalindrome (string) {
   string = string.replaceAll(' ', '').toLowerCase();
@@ -12,16 +13,17 @@ function isPalindrome (string) {
   return newstring === string;
 }
 
-
+isPalindrome('топот');
 
 function strigToNumber(checkedString) {
   checkedString = checkedString.toString();
   let stringElement = 0;
   let resultString = '';
-  for (i = 0; i < checkedString.length; i++) {
+  for (let i = 0; i < checkedString.length; i++) {
     stringElement = parseInt(checkedString[i], 10);
     resultString += Number.isNaN(stringElement) ? '' : stringElement;
   };
   return parseInt(resultString, 10);
 }
 
+strigToNumber('ECMAScript 2022');
