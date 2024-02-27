@@ -22,7 +22,7 @@ function strigToNumber(checkedString) {
   for (let i = 0; i < checkedString.length; i++) {
     stringElement = parseInt(checkedString[i], 10);
     resultString += Number.isNaN(stringElement) ? '' : stringElement;
-  };
+  }
   return parseInt(resultString, 10);
 }
 
