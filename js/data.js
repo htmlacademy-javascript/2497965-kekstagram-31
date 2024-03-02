@@ -55,4 +55,4 @@ function generatePost() {
 }
 
 const posts = Array.from({length:25}, generatePost);
-export {generatePostId};
+export {posts};
