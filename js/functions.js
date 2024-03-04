@@ -35,13 +35,9 @@ function timeToArray (string) {
 
 function isValidMeeting (workdayStart, workdayEnd, meetingStart, meetingDuration) {
   workdayStart = timeToArray (workdayStart);
-  console.log(workdayStart);
   workdayEnd = timeToArray (workdayEnd);
-  console.log(workdayEnd);
   meetingStart = timeToArray (meetingStart);
-  console.log(meetingStart);
-  let meetingEnd = meetingStart + meetingDuration;
-  console.log(meetingEnd);
+  const meetingEnd = meetingStart + meetingDuration;
   return workdayStart <= meetingStart && meetingEnd <= workdayEnd;
 }
 isValidMeeting('08:00', '17:30', '14:00', 90);
