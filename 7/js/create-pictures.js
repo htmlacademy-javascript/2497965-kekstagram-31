@@ -1,8 +1,7 @@
 import { posts } from './data';
 
 const picturesTemplate = document.querySelector('#picture')
-  .content
-  .querySelector('.picture');
+  .content;
 const pictureListElement = document.querySelector('.pictures');
 const createPicture = posts();
 const pictureListFragment = document.createDocumentFragment();

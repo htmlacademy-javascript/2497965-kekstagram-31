@@ -1,2 +1,2 @@
-import './create-pictures';
+import './create-pictures.js';
 
