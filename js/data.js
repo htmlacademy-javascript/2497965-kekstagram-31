@@ -54,5 +54,5 @@ function generatePost() {
   };
 }
 
-const posts = Array.from({length:25}, generatePost);
+const posts = Array.from({length:25}, generatePost());
 export {posts};

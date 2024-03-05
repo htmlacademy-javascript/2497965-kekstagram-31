@@ -3,7 +3,7 @@ import { posts } from './data';
 const picturesTemplate = document.querySelector('#picture')
   .content;
 const pictureListElement = document.querySelector('.pictures');
-const createPicture = posts();
+const createPicture = posts;
 const pictureListFragment = document.createDocumentFragment();
 
 createPicture.forEach(({url, description, likes, comments}) => {
