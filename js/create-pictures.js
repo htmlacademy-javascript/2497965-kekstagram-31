@@ -1,9 +1,9 @@
 import { posts } from './data';
 
 const picturesTemplate = document.querySelector('#picture')
-.content
-.querySelector('.picture');
-const pictureListElement = document.querySelector('.pictures')
+  .content
+  .querySelector('.picture');
+const pictureListElement = document.querySelector('.pictures');
 const createPicture = posts();
 const pictureListFragment = document.createDocumentFragment();
 
