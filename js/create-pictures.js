@@ -3,7 +3,7 @@ import {postsData} from './data';
 const picturesTemplate = document.querySelector('#picture')
   .content.querySelector('.picture');
 const pictureContainer = document.querySelector('.pictures');
-const postsData = postsData;
+const posts = postsData;
 const pictureFragment = document.createDocumentFragment();
 
 function fillTemplate({url, description, likes, comments}) {
@@ -16,8 +16,8 @@ function fillTemplate({url, description, likes, comments}) {
   return {url, description, likes, comments};
 }
 
-function createPosts(postsData) {
-  postsData.forEach((item) => {
+function createPosts(posts) {
+  posts.forEach((item) => {
     const postTemplate = fillTemplate(item);
     pictureFragment.appendChild(postTemplate);
   });
