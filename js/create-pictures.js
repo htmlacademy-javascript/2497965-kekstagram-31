@@ -1,9 +1,6 @@
-import {postsData} from './data';
-
 const picturesTemplate = document.querySelector('#picture')
   .content.querySelector('.picture');
 const pictureContainer = document.querySelector('.pictures');
-const posts = postsData;
 const pictureFragment = document.createDocumentFragment();
 
 function fillTemplate({url, description, likes, comments}) {
