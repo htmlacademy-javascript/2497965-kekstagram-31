@@ -6,7 +6,6 @@ const pictureFragment = document.createDocumentFragment();
 function fillTemplate({url, description, likes, comments}) {
   const pictureElement = picturesTemplate.cloneNode(true);
   pictureElement.querySelector('.picture__img').src = url;
-  console.log(description);
   pictureElement.querySelector('picture__img').alt = description;
   pictureElement.querySelector('.picture__likes').textContent = likes;
   pictureElement.querySelector('.picture__comments').textContent = comments.length;
