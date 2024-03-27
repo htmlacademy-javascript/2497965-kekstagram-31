@@ -1,3 +1,5 @@
+import {isEscapeKey} from "./util.js";
+
 const container = document.querySelector('.big-picture');
 const bigImage = container.querySelector('.big-picture__img img');
 const likes = container.querySelector('.big-picture__social').querySelector('.likes-count');
@@ -20,7 +22,7 @@ function onDocumentKeydown(evt) {
   if (isEscapeKey(evt)) {
     evt.preventDefault();
     closeBigImage();
-  };
+  }
 }
 
 function closeBigImage() {
