@@ -1,3 +1,5 @@
+import {getRandomInteger, getIdNumber} from './util.js';
+
 const DESCRIPTIONS = [
   'Похоже у меня аллергия на утро!',
   'Предупреждение: на этом фото вы можете бесповоротно влюбиться в меня.',
@@ -28,8 +30,6 @@ const NAMES = [
   'Петрова Полина'
 ];
 
-import {getRandomInteger, getIdNumber} from './util.js';
-
 const generateCommentId = getIdNumber(1, 1000);
 
 function generateComment() {
@@ -54,5 +54,5 @@ function generatePost() {
   };
 }
 
-const posts = Array.from({length:25}, generatePost);
-export {posts};
+const postsData = Array.from({length:25}, generatePost);
+export {postsData};

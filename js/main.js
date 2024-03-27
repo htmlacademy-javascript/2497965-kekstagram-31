@@ -1,2 +1,3 @@
-import {posts} from './data.js';
-window.console.log(posts);
+import {createPosts} from './create-pictures.js';
+import {postsData} from './data.js';
+createPosts(postsData);
