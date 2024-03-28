@@ -7,6 +7,7 @@ const pictureFragment = document.createDocumentFragment();
 
 function fillTemplate(posts) {
   const pictureElement = picturesTemplate.cloneNode(true);
+  pictureElement.dataset.pictureId = posts.id;
   pictureElement.querySelector('.picture__img').src = posts.url;
   pictureElement.querySelector('.picture__img').alt = posts.description;
   pictureElement.querySelector('.picture__likes').textContent = posts.likes;

@@ -15,7 +15,7 @@ const closeButton = container.querySelector('.big-picture__cancel');
 thumbnailsContainer.addEventListener('click', (evt) => {
   const currentPicture = evt.target.closest('.picture');
   if (currentPicture) {
-    openBigImage(currentPicture.dataset);
+    openBigImage(currentPicture.dataset.pictureId);
   }
 })
 function onDocumentKeydown(evt) {
@@ -31,10 +31,11 @@ function closeBigImage() {
   closeButton.removeEventListener('click', closeBigImage);
 }
 
-function openBigImage(currentPicture) {
+function openBigImage(currentPictureId) {
   container.classList.remove('hidden');
   document.addEventListener('keydown', onDocumentKeydown);
   closeButton.addEventListener('click', closeBigImage);
+  const currentPicture = thumbnails.find((thumbnail) => thumbnail.id === Number(currentPictureId));
   bigImage.src = currentPicture.url;
   shownComments.classList.add('hidden');
   totalComments.classList.add('hidden');
