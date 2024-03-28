@@ -40,6 +40,7 @@ function openBigImage(currentPictureId) {
   bigImage.alt = currentPicture.description;
   likes.textContent = currentPicture.likes;
   totalComments.textContent = currentPicture.comments.length;
+  imageDescription.textContent = bigImage.description;
   shownComments.classList.add('hidden');
   totalComments.classList.add('hidden');
   loadCommentsButton.classList.add('hidden');
