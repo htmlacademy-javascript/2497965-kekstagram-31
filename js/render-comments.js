@@ -28,7 +28,7 @@ function loadNextComments() {
   shownComments.textContent = shownCommentsCount;
   if (shownCommentsCount >= comments.length) {
     loadCommentsButton.classList.add('hidden');
-  };
+  }
   count += COMMENT_STEP;
 }
 
@@ -37,7 +37,7 @@ function clearComments() {
   commentsList.innerHTML = '';
   loadCommentsButton.classList.remove('hidden');
   loadCommentsButton.removeEventListener('click', loadNextComments);
-};
+}
 
 function renderComments(currentComments) {
   comments = currentComments;
@@ -45,4 +45,4 @@ function renderComments(currentComments) {
   loadCommentsButton.addEventListener('click', loadNextComments);
 }
 
-export {clearComments, renderComments}
+export {clearComments, renderComments};
