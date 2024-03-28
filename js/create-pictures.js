@@ -25,4 +25,3 @@ function createPosts(posts) {
 
 const thumbnails = createPosts(postsData);
 
-export {thumbnails};
