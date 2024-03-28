@@ -20,4 +20,8 @@ function getIdNumber (a, b) {
   };
 }
 
-export {getRandomInteger, getIdNumber};
+function isEscapeKey(evt) {
+  return evt.key === 'Escape';
+}
+
+export {getRandomInteger, getIdNumber, isEscapeKey};
