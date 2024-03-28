@@ -19,7 +19,8 @@ thumbnailsContainer.addEventListener('click', (evt) => {
   if (currentPicture) {
     openBigImage(currentPicture.dataset.pictureId);
   }
-})
+});
+
 function onDocumentKeydown(evt) {
   if (isEscapeKey(evt)) {
     evt.preventDefault();
@@ -53,7 +54,8 @@ function openBigImage(currentPictureId) {
     avatar.alt = comment.name;
     commentNode.querySelector('.social__text').textContent = comment.message;
     commentsFragment.appendChild(commentNode);
-  })
+  });
+
   commentsList.appendChild(commentsFragment);
   shownComments.classList.add('hidden');
   totalComments.classList.add('hidden');
