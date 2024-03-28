@@ -1,5 +1,5 @@
 import {isEscapeKey} from './util.js';
-import {thumbnails} from './create-pictures.js';
+import {postsData} from './data.js';
 
 const thumbnailsContainer = document.querySelector('.pictures');
 const container = document.querySelector('.big-picture');
@@ -35,7 +35,7 @@ function openBigImage(currentPictureId) {
   container.classList.remove('hidden');
   document.addEventListener('keydown', onDocumentKeydown);
   closeButton.addEventListener('click', closeBigImage);
-  const currentPicture = thumbnails.find((thumbnail) => thumbnail.id === Number(currentPictureId));
+  const currentPicture = postsData.find((post) => post.id === Number(currentPictureId));
   bigImage.src = currentPicture.url;
   shownComments.classList.add('hidden');
   totalComments.classList.add('hidden');
