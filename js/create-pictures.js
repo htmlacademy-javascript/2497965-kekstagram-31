@@ -23,5 +23,5 @@ function createPosts(posts) {
   pictureContainer.appendChild(pictureFragment);
 }
 
-const thumbnails = createPosts(postsData);
+createPosts(postsData);
 
