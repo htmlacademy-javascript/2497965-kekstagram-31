@@ -37,9 +37,6 @@ function closeBigImage() {
 function openBigImage(currentPictureId) {
   const currentPicture = postsData.find((post) => post.id === Number(currentPictureId));
   const commentsFragment = document.createDocumentFragment();
-
-  container.classList.remove('hidden');
-  body.classList.add('modal-open');
   document.addEventListener('keydown', onDocumentKeydown);
   closeButton.addEventListener('click', closeBigImage);
   bigImage.src = currentPicture.url;
@@ -60,5 +57,7 @@ function openBigImage(currentPictureId) {
   shownComments.classList.add('hidden');
   totalComments.classList.add('hidden');
   loadCommentsButton.classList.add('hidden');
+  container.classList.remove('hidden');
+  body.classList.add('modal-open');
 }
 
