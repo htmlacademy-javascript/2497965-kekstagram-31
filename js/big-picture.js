@@ -57,9 +57,6 @@ function openBigImage(currentPictureId) {
   });
 
   commentsList.appendChild(commentsFragment);
-  shownComments.classList.add('hidden');
-  totalComments.classList.add('hidden');
-  loadCommentsButton.classList.add('hidden');
   container.classList.remove('hidden');
   body.classList.add('modal-open');
 }
