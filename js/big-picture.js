@@ -10,6 +10,7 @@ const shownComments = container.querySelector('.social__comment-shown-count');
 const totalComments = container.querySelector('.social__comment-total-count');
 const loadCommentsButton = container.querySelector('.social__comments-loader');
 const commentsList = container.querySelector('.social__comments');
+const commentTemplate = container.querySelector('.social__comment');
 const closeButton = container.querySelector('.big-picture__cancel');
 const body = document.querySelector('body');
 
@@ -28,21 +29,34 @@ function onDocumentKeydown(evt) {
 
 function closeBigImage() {
   container.classList.add('hidden');
+  body.classList.remove('modal-open');
   document.removeEventListener('keydown', onDocumentKeydown);
   closeButton.removeEventListener('click', closeBigImage);
 }
 
 function openBigImage(currentPictureId) {
+  const currentPicture = postsData.find((post) => post.id === Number(currentPictureId));
+  const commentsFragment = document.createDocumentFragment();
+
   container.classList.remove('hidden');
   body.classList.add('modal-open');
   document.addEventListener('keydown', onDocumentKeydown);
   closeButton.addEventListener('click', closeBigImage);
-  const currentPicture = postsData.find((post) => post.id === Number(currentPictureId));
   bigImage.src = currentPicture.url;
   bigImage.alt = currentPicture.description;
   likes.textContent = currentPicture.likes;
   totalComments.textContent = currentPicture.comments.length;
   imageDescription.textContent = currentPicture.description;
+  commentsList.innerHTML = '';
+  currentPicture.comments.forEach((comment) => {
+    const commentNode = commentTemplate.cloneNode(true);
+    const avatar = commentNode.querySelector('.social__picture');
+    avatar.src = comment.avatar;
+    avatar.alt = comment.name;
+    commentNode.querySelector('.social__text').textContent = comment.message;
+    commentsFragment.appendChild(commentNode);
+  })
+  commentsList.appendChild(commentsFragment);
   shownComments.classList.add('hidden');
   totalComments.classList.add('hidden');
   loadCommentsButton.classList.add('hidden');
