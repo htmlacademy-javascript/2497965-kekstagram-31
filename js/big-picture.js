@@ -1,5 +1,7 @@
 import {isEscapeKey} from './util.js';
+import {thumbnails} from './create-pictures.js';
 
+const thumbnailsContainer = document.querySelector('.pictures');
 const container = document.querySelector('.big-picture');
 const bigImage = container.querySelector('.big-picture__img img');
 const likes = container.querySelector('.big-picture__social').querySelector('.likes-count');
@@ -9,16 +11,13 @@ const totalComments = container.querySelector('.social__comment-total-count');
 const loadCommentsButton = container.querySelector('.social__comments-loader');
 const commentsList = container.querySelector('.social__comments');
 const closeButton = container.querySelector('.big-picture__cancel');
-//Количество лайков likes подставьте как текстовое содержание элемента .likes-count.
 
-//Количество показанных комментариев подставьте как текстовое
-//содержание элемента .social__comment-shown-count.
-
-//Общее количество комментариев к фотографии comments подставьте как
-//текстовое содержание элемента .social__comment-total-count.
-
-//Описание фотографии description вставьте строкой в блок .social__caption.
-//Напишите код для закрытия окна по нажатию клавиши Esc и клике по иконке закрытия.
+thumbnailsContainer.addEventListener('click', (evt) => {
+  const currentThumbnail = evt.target.closest('.picture');
+  if (currentThumbnail) {
+    openBigImage();
+  }
+})
 function onDocumentKeydown(evt) {
   if (isEscapeKey(evt)) {
     evt.preventDefault();
@@ -40,3 +39,4 @@ function openBigImage() {
   totalComments.classList.add('hidden');
   loadCommentsButton.classList.add('hidden');
 }
+

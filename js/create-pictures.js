@@ -1,3 +1,5 @@
+import {postsData} from './data.js';
+
 const picturesTemplate = document.querySelector('#picture')
   .content.querySelector('.picture');
 const pictureContainer = document.querySelector('.pictures');
@@ -20,4 +22,6 @@ function createPosts(posts) {
   pictureContainer.appendChild(pictureFragment);
 }
 
-export {createPosts};
+const thumbnails = createPosts(postsData);
+
+export {thumbnails};
