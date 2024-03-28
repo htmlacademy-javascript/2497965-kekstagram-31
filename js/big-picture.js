@@ -37,6 +37,9 @@ function openBigImage(currentPictureId) {
   closeButton.addEventListener('click', closeBigImage);
   const currentPicture = postsData.find((post) => post.id === Number(currentPictureId));
   bigImage.src = currentPicture.url;
+  bigImage.alt = currentPicture.description;
+  likes.textContent = currentPicture.likes;
+  totalComments.textContent = currentPicture.comments.length;
   shownComments.classList.add('hidden');
   totalComments.classList.add('hidden');
   loadCommentsButton.classList.add('hidden');
