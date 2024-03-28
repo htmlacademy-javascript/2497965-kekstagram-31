@@ -11,6 +11,7 @@ const totalComments = container.querySelector('.social__comment-total-count');
 const loadCommentsButton = container.querySelector('.social__comments-loader');
 const commentsList = container.querySelector('.social__comments');
 const closeButton = container.querySelector('.big-picture__cancel');
+const body = document.querySelector('body');
 
 thumbnailsContainer.addEventListener('click', (evt) => {
   const currentPicture = evt.target.closest('.picture');
@@ -33,6 +34,7 @@ function closeBigImage() {
 
 function openBigImage(currentPictureId) {
   container.classList.remove('hidden');
+  body.classList.add('modal-open');
   document.addEventListener('keydown', onDocumentKeydown);
   closeButton.addEventListener('click', closeBigImage);
   const currentPicture = postsData.find((post) => post.id === Number(currentPictureId));
