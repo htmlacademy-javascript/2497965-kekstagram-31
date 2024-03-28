@@ -13,9 +13,9 @@ const commentsList = container.querySelector('.social__comments');
 const closeButton = container.querySelector('.big-picture__cancel');
 
 thumbnailsContainer.addEventListener('click', (evt) => {
-  const currentThumbnail = evt.target.closest('.picture');
-  if (currentThumbnail) {
-    openBigImage();
+  const currentPicture = evt.target.closest('.picture');
+  if (currentPicture) {
+    openBigImage(currentPicture.dataset);
   }
 })
 function onDocumentKeydown(evt) {
@@ -31,10 +31,11 @@ function closeBigImage() {
   closeButton.removeEventListener('click', closeBigImage);
 }
 
-function openBigImage() {
+function openBigImage(currentPicture) {
   container.classList.remove('hidden');
   document.addEventListener('keydown', onDocumentKeydown);
   closeButton.addEventListener('click', closeBigImage);
+  bigImage.src = currentPicture.url;
   shownComments.classList.add('hidden');
   totalComments.classList.add('hidden');
   loadCommentsButton.classList.add('hidden');
