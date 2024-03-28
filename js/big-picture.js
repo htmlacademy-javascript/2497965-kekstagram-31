@@ -43,6 +43,7 @@ function openBigImage(currentPictureId) {
   bigImage.alt = currentPicture.description;
   likes.textContent = currentPicture.likes;
   totalComments.textContent = currentPicture.comments.length;
+  shownComments.textContent = 5;
   imageDescription.textContent = currentPicture.description;
   commentsList.innerHTML = '';
   currentPicture.comments.forEach((comment) => {
