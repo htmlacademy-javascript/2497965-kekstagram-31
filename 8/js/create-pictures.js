@@ -1,3 +1,5 @@
+import {postsData} from './data.js';
+
 const picturesTemplate = document.querySelector('#picture')
   .content.querySelector('.picture');
 const pictureContainer = document.querySelector('.pictures');
@@ -5,6 +7,7 @@ const pictureFragment = document.createDocumentFragment();
 
 function fillTemplate(posts) {
   const pictureElement = picturesTemplate.cloneNode(true);
+  pictureElement.dataset.pictureId = posts.id;
   pictureElement.querySelector('.picture__img').src = posts.url;
   pictureElement.querySelector('.picture__img').alt = posts.description;
   pictureElement.querySelector('.picture__likes').textContent = posts.likes;
@@ -20,4 +23,5 @@ function createPosts(posts) {
   pictureContainer.appendChild(pictureFragment);
 }
 
-export {createPosts};
+const thumbnails = createPosts(postsData);
+
