@@ -32,9 +32,11 @@ uploadFile.addEventListener('change', openForm);
 
 const pristine = new Pristine(uploadPhotoForm, {
   classTo: 'img-upload__field-wrapper',
-  errorTextParent: '.img-upload__field-wrapper',
-  errorTextClass: '.img-upload__field-wrapper--error'
+  errorClass: 'img-upload__field-wrapper--error',
+  errorTextParent: '.img-upload__field-wrapper'
 });
+
 pristine.addValidator(hashtagForm, (value) => {
   /^#[a-zа-яё0-9]{1,19}$/i.test(value);
-}, 'Ошибка')
+}, 'Ошибка');
+
