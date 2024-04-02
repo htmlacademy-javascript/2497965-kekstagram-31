@@ -26,4 +26,4 @@ function onDocumentKeydown(evt) {
   }
 }
 
-uploadFileForm.addEventListener('click', openForm);
+uploadFileForm.addEventListener('change', openForm);
