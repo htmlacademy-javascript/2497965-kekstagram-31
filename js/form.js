@@ -1,9 +1,11 @@
 import {isEscapeKey} from './util.js';
-
-const uploadFileForm = document.querySelector('#upload-file');
-const renderPhotoForm = document.querySelector('.img-upload__overlay');
+const uploadPhotoForm = document.querySelector('.img-upload__form');
+const uploadFile = uploadPhotoForm.querySelector('#upload-file');
+const renderPhotoForm = uploadPhotoForm.querySelector('.img-upload__overlay');
 const body = document.querySelector('body');
 const closeButton = renderPhotoForm.querySelector('.img-upload__cancel');
+const hashtagForm = uploadPhotoForm.querySelector('.text__hashtags');
+const commentForm = uploadPhotoForm.querySelector('.text__description');
 
 function closeForm() {
   renderPhotoForm.classList.add('hidden');
@@ -26,4 +28,4 @@ function onDocumentKeydown(evt) {
   }
 }
 
-uploadFileForm.addEventListener('change', openForm);
+uploadFile.addEventListener('change', openForm);
