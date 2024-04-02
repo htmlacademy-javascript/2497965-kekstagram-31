@@ -31,3 +31,4 @@ function onDocumentKeydown(evt) {
 uploadFile.addEventListener('change', openForm);
 
 const pristine = new Pristine(uploadPhotoForm);
+pristine.addValidator(hashtagForm, () => {}, 'Ошибка')
