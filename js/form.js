@@ -29,7 +29,7 @@ function onDocumentKeydown(evt) {
     closeForm();
   }
 }
-
+hashtagInput.addEventListener('input', isHashtagValid(hashtagInput.value));
 uploadFile.addEventListener('change', openForm);
 
 const pristine = new Pristine(uploadPhotoForm, {
