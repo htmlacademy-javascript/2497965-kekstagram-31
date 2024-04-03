@@ -5,7 +5,7 @@ let errorMessage = '';
 
 
 function isHashtagValid(value) {
-  const hashtagArray = value.trim.toLowerCase.split(/\s+/);
+  const hashtagArray = value.trim().toLowerCase().split(/\s+/);
   errorMessage = '';
   if (hashtagArray.lenght === 0) {
     return true;
