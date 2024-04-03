@@ -2,7 +2,9 @@ const HASHTAG_MAX_COUNT = 5;
 const HASHTAG_MAX_LENGHT = 20;
 //const HASHTAG_VALID_REG = /^#[a-zа-яё0-9]{1,19}$/i;
 let errorMessage = '';
-
+function returnError() {
+  return errorMessage;
+};
 
 function isHashtagValid(value) {
   const hashtagArray = value.trim().toLowerCase().split(/\s+/);
@@ -33,4 +35,4 @@ function checkHastagLength(string) {
   return string > 20;
 }
 
-export {isHashtagValid, errorMessage};
+export {isHashtagValid, returnError};

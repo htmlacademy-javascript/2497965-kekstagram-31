@@ -1,5 +1,5 @@
 import {isEscapeKey} from './util.js';
-import {isHashtagValid, errorMessage} from './hashtag-validate.js';
+import {isHashtagValid, returnError} from './hashtag-validate.js';
 
 const uploadPhotoForm = document.querySelector('.img-upload__form');
 const uploadFile = uploadPhotoForm.querySelector('#upload-file');
@@ -39,5 +39,5 @@ const pristine = new Pristine(uploadPhotoForm, {
   errorTextParent: 'img-upload__field-wrapper'
 });
 
-pristine.addValidator(hashtagInput, isHashtagValid, 'rrorMessage');
+pristine.addValidator(hashtagInput, isHashtagValid, returnError());
 
