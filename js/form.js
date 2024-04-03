@@ -29,8 +29,9 @@ function onDocumentKeydown(evt) {
     closeForm();
   }
 }
-//hashtagInput.addEventListener('input', isHashtagValid(hashtagInput.value));
+
 uploadFile.addEventListener('change', openForm);
+hashtagInput.addEventListener('input', isHashtagValid(hashtagInput.value));
 
 const pristine = new Pristine(uploadPhotoForm, {
   classTo: 'img-upload__field-wrapper',
