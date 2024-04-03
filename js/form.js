@@ -39,5 +39,5 @@ const pristine = new Pristine(uploadPhotoForm, {
   errorTextParent: 'img-upload__field-wrapper'
 });
 
-pristine.addValidator(hashtagInput, isHashtagValid, errorMessage);
+pristine.addValidator(hashtagInput, isHashtagValid, 'rrorMessage');
 
