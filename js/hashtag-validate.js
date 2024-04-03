@@ -14,11 +14,11 @@ function isHashtagValid(value) {
     errorMessage = `Нельзя указать больше ${HASHTAG_MAX_COUNT} хэштегов`;
     return false;
   }
-  if (hashtagArray.some(hasOnlyNumSign(hashtag))) {
+  if (hashtagArray.some(hasOnlyNumSign)) {
     errorMessage = "Хеш-тег не может состоять только из одной решётки";
     return false;
   };
-  if (hashtagArray.some(checkHastagLength(hashtag))) {
+  if (hashtagArray.some(checkHastagLength)) {
     errorMessage = `Хеш-тег не может быть длиннее ${HASHTAG_MAX_LENGHT}`;
     return false;
   };
