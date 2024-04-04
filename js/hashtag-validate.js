@@ -20,7 +20,8 @@ function isHashtagValid(value) {
   hashtagArray.forEach((hashtag) => {
     if (!hasOnlyNumSign(hashtag)||
     !checkHastagLength(hashtag)||
-    !hasRightMask(hashtag)) {
+    !hasRightMask(hashtag)||
+    !isUnique(hashtag)) {
       return false;
     };
     return true;
@@ -47,6 +48,14 @@ function checkHastagLength(hashtag) {
 function hasRightMask(hashtag) {
   if (!HASHTAG_VALID_REG.test(hashtag)) {
     errorMessage = `Хэштег должен начинаться с символа # и состоять из букв и чисел`;
+    return false;
+  };
+  return true;
+}
+
+function isUnique(hashtag, array) {
+  if (array.includes(hashtag, array.indexOf(hashtag)+1)) {
+    errorMessage = `Один и тот же хэштег не может быть использован дважды`;
     return false;
   };
   return true;
