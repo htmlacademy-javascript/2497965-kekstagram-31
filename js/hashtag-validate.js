@@ -25,7 +25,7 @@ function isHashtagValid(value) {
     errorMessage = `Хеш-тег не может быть длиннее ${HASHTAG_MAX_LENGHT}`;
     return false;
   };
-
+ return true;
 }
 
 function hasOnlyNumSign(string) {
