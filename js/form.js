@@ -31,7 +31,7 @@ function onDocumentKeydown(evt) {
 }
 
 uploadFile.addEventListener('change', openForm);
-hashtagInput.addEventListener('input', isHashtagValid(hashtagInput.value));
+//hashtagInput.addEventListener('input', isHashtagValid(hashtagInput.value));
 
 const pristine = new Pristine(uploadPhotoForm, {
   classTo: 'img-upload__field-wrapper',
