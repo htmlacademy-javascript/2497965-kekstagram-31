@@ -9,11 +9,11 @@ function returnError() {
 function isHashtagValid(value) {
   const hashtagString = value.trim().toLowerCase()
   errorMessage = '';
-  if (hashtagString.lenght === 0) {
+  if (hashtagString.length === 0) {
     return true;
   };
   const hashtagArray = hashtagString.split(' ');
-  if (hashtagArray.lenght > HASHTAG_MAX_COUNT) {
+  if (hashtagArray.length > HASHTAG_MAX_COUNT) {
     errorMessage = `Нельзя указать больше ${HASHTAG_MAX_COUNT} хэштегов`;
     return false;
   }
@@ -37,7 +37,7 @@ function hasOnlyNumSign(hashtag) {
 }
 
 function checkHastagLength(hashtag) {
-  if (hashtag.lenght > HASHTAG_MAX_LENGHT) {
+  if (hashtag.length > HASHTAG_MAX_LENGHT) {
     errorMessage = `Хэштег не может быть длиннее ${HASHTAG_MAX_LENGHT}`;
     return false;
   };
