@@ -19,8 +19,8 @@ function isHashtagValid(value) {
   }
   hashtagArray.forEach((hashtag) => {
     if (!hasOnlyNumSign(hashtag)||
-    !checkHastagLength||
-    !hasRightMask||) {
+    !checkHastagLength(hashtag)||
+    !hasRightMask(hashtag)) {
       return false;
     };
     return true;
