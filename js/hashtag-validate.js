@@ -7,11 +7,12 @@ function returnError() {
 };
 
 function isHashtagValid(value) {
-  const hashtagArray = value.trim().toLowerCase().split(/\s+/);
+  const hashtagString = value.trim().toLowerCase()
   errorMessage = '';
-  if (hashtagArray.lenght === 0) {
+  if (hashtagString.lenght === 0) {
     return true;
   };
+  const hashtagArray = hashtagString.split(/\s+/);
   if (hashtagArray.lenght > HASHTAG_MAX_COUNT) {
     errorMessage = `Нельзя указать больше ${HASHTAG_MAX_COUNT} хэштегов`;
     return false;
@@ -32,7 +33,7 @@ function hasOnlyNumSign(string) {
 }
 
 function checkHastagLength(string) {
-  return string > 20;
+  return string > HASHTAG_MAX_LENGHT;
 }
 
 export {isHashtagValid, returnError};
