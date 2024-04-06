@@ -76,7 +76,6 @@ noUiSlider.create(slider, {
 });
 
 function getCurrentFilter () {
-  console.log(effectList.querySelector('input[name=effect]:checked').value);
   return effectList.querySelector('input[name=effect]:checked').value;
 
 }
@@ -88,7 +87,7 @@ function updateSlider () {
 }
 
 effectList.addEventListener('change', () => {
-  console.log(getCurrentFilter);
-  imgPreview.classList.add(`effects__preview--${getCurrentFilter}`);
+  console.log(getCurrentFilter());
+  //imgPreview.classList.add(`effects__preview--${getCurrentFilter}`);
 })
 slider.noUiSlider.on('update', updateSlider);
