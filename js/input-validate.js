@@ -1,5 +1,6 @@
 const HASHTAG_MAX_COUNT = 5;
-const HASHTAG_MAX_LENGHT = 20;
+const HASHTAG_MAX_LENGTH = 20;
+const COMMENT_MAX_LENGTH = 140;
 const HASHTAG_VALID_REG = /^#[a-zа-яё0-9]{1,19}$/i;
 let errorMessage = '';
 function returnError() {
@@ -26,7 +27,6 @@ function isHashtagValid(value) {
     };
     return true;
   });
-
 }
 
 function hasOnlyNumSign(hashtag) {
@@ -38,8 +38,8 @@ function hasOnlyNumSign(hashtag) {
 }
 
 function checkHastagLength(hashtag) {
-  if (hashtag.length > HASHTAG_MAX_LENGHT) {
-    errorMessage = `Хэштег не может быть длиннее ${HASHTAG_MAX_LENGHT}`;
+  if (hashtag.length > HASHTAG_MAX_LENGTH) {
+    errorMessage = `Хэштег не может быть длиннее ${HASHTAG_MAX_LENGHTH}`;
     return false;
   };
   return true;
@@ -61,4 +61,13 @@ function isUnique(hashtag, array) {
   return true;
 }
 
-export {isHashtagValid, returnError};
+function isCommentValid(value) {
+  if (value.length > COMMENT_MAX_LENGTH) {
+    errorMessage = `Комментарий не может быть длиннее ${COMMENT_MAX_LENGTH}`;
+    return false;
+  } else {
+    return true;
+  }
+}
+
+export {isHashtagValid, isCommentValid, returnError};
