@@ -86,6 +86,6 @@ function updateSlider () {
 }
 
 effectList.addEventListener('change', () => {
-  imgPreview.classList.add(`.effects__preview--${getCurrentFilter}`);
+  imgPreview.classList.add(`effects__preview--${getCurrentFilter}`);
 })
 slider.noUiSlider.on('update', updateSlider);
