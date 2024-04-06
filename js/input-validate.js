@@ -62,6 +62,7 @@ function isUnique(hashtag, array) {
 }
 
 function isCommentValid(value) {
+  errorMessage = '';
   if (value.length > COMMENT_MAX_LENGTH) {
     errorMessage = `Комментарий не может быть длиннее ${COMMENT_MAX_LENGTH}`;
     return false;
