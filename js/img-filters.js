@@ -76,7 +76,7 @@ noUiSlider.create(slider, {
 });
 
 function getCurrentFilter () {
-  return effectList.querySelector('.effects__radio:checked').value.trim();
+  return effectList.querySelector('.effects__radio:checked').value;
 }
 
 function updateSlider () {
@@ -86,6 +86,6 @@ function updateSlider () {
 }
 
 effectList.addEventListener('change', () => {
-  imgPreview.classList.add(`effects__preview--${getCurrentFilter}`);
+  imgPreview.classList.add(`effects__preview--chrome`);
 })
 slider.noUiSlider.on('update', updateSlider);
