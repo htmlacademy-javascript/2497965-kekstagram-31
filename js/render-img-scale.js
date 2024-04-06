@@ -6,7 +6,7 @@ const imgPreview = document.querySelector('.big-picture__preview');
 const scaleContainer = document.querySelector('.img-upload__scale');
 const scaleSmaller = scaleContainer.querySelector('.scale__control--smaller');
 const scaleBigger = scaleContainer.querySelector('.scale__control--bigger');
-const scaleValue = scaleContainer.querySelector('.scale__control--value');
+let scaleValue = scaleContainer.querySelector('.scale__control--value');
 
 function makeImgSmaller () {
   let scale = Number(scaleValue.value.slice(0, -1))
