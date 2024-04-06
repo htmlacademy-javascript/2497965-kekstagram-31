@@ -18,6 +18,8 @@ function makeImgSmaller () {
 function makeImgBigger () {
   if (scaleValue.value < MAX) {
     scaleValue.value += STEP;
+    imgPreview.style.transform.scale = scaleValue.value / 100;
   }
 }
-
+scaleSmaller.addEventListener('click', makeImgSmaller);
+scaleBigger.addEventListener('click', makeImgBigger);
