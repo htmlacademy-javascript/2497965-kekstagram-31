@@ -2,7 +2,7 @@ const imgPreview = document.querySelector('.img-upload__preview img');
 const effectLevel = document.querySelector('.effect-level__value');
 const sliderContainer = document.querySelector('.img-upload__effect-level');
 const slider = sliderContainer.querySelector('.effect-level__slider');
-const effectList = document.querySelector('.effects__list');
+const effectList = document.querySelector('.img-upload__effects');
 
 const filterSettings = {
   chrome: {
