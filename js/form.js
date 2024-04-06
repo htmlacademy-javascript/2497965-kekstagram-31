@@ -37,10 +37,9 @@ function onDocumentKeydown(evt) {
   if (isEscapeKey(evt)) {
     if(isFieldOnFocus) {
       return;
-    } else {
-      evt.preventDefault();
-      closeForm();
     }
+    evt.preventDefault();
+    closeForm();
   }
 }
 
