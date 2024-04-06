@@ -7,7 +7,7 @@ const renderPhotoForm = uploadPhotoForm.querySelector('.img-upload__overlay');
 const body = document.querySelector('body');
 const closeButton = renderPhotoForm.querySelector('.img-upload__cancel');
 const hashtagInput = uploadPhotoForm.querySelector('.text__hashtags');
-//const commentInput = uploadPhotoForm.querySelector('.text__description');
+const commentInput = uploadPhotoForm.querySelector('.text__description');
 
 function closeForm() {
   renderPhotoForm.classList.add('hidden');
@@ -25,9 +25,15 @@ function openForm() {
 
 function onDocumentKeydown(evt) {
   if (isEscapeKey(evt)) {
-    evt.preventDefault();
-    closeForm();
-  }
+    if(document.activeElement === hashtagInput ||
+    document.activeElement === commentInput) {
+      evt.preventDefault();
+      evt.stopPropagnation();
+    } else {
+      evt.preventDefault();
+      closeForm();
+    };
+  };
 }
 
 uploadFile.addEventListener('change', openForm);
