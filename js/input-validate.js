@@ -19,45 +19,45 @@ function isHashtagValid(value) {
     return false;
   }
   hashtagArray.forEach((hashtag) => {
-    if (!hasOnlyNumSign(hashtag)||
-    !checkHastagLength(hashtag)||
-    !hasRightMask(hashtag)||
+    if (!hasOnlyNumSign(hashtag) ||
+    !checkHastagLength(hashtag) ||
+    !hasRightMask(hashtag) ||
     !isUnique(hashtag)) {
       return false;
-    };
+    }
     return true;
   });
 }
 
 function hasOnlyNumSign(hashtag) {
   if (hashtag === '#') {
-    errorMessage = "Хэштег не может состоять только из одной решётки";
-    return false
-  };
+    errorMessage = 'Хэштег не может состоять только из одной решётки';
+    return false;
+  }
   return true;
 }
 
 function checkHastagLength(hashtag) {
   if (hashtag.length > HASHTAG_MAX_LENGTH) {
-    errorMessage = `Хэштег не может быть длиннее ${HASHTAG_MAX_LENGHTH}`;
+    errorMessage = `Хэштег не может быть длиннее ${HASHTAG_MAX_LENGTH}`;
     return false;
-  };
+  }
   return true;
 }
 
 function hasRightMask(hashtag) {
   if (!HASHTAG_VALID_REG.test(hashtag)) {
-    errorMessage = `Хэштег должен начинаться с символа # и состоять из букв и чисел`;
+    errorMessage = 'Хэштег должен начинаться с символа # и состоять из букв и чисел';
     return false;
-  };
+  }
   return true;
 }
 
 function isUnique(hashtag, array) {
   if (array.includes(hashtag, array.indexOf(hashtag)+1)) {
-    errorMessage = `Один и тот же хэштег не может быть использован дважды`;
+    errorMessage = 'Один и тот же хэштег не может быть использован дважды';
     return false;
-  };
+  }
   return true;
 }
 
