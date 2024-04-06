@@ -47,7 +47,7 @@ function setSubmitButtonAttribute () {
   if (!pristine.validate()) {
     submitButton.setAttribute("disabled", "true");
   } else {
-    submitButton.setAttribute("disabled", "false");
+    submitButton.removeAttribute("disabled");
   };
 }
 
