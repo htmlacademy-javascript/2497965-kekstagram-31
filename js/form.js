@@ -53,11 +53,7 @@ hashtagInput.addEventListener('input', setSubmitButtonAttribute);
 commentInput.addEventListener('input', setSubmitButtonAttribute);
 
 function setSubmitButtonAttribute () {
-  if (!pristine.validate()) {
-    submitButton.setAttribute('disabled', 'true');
-  } else {
-    submitButton.removeAttribute('disabled');
-  }
+  submitButton.disabled = pristine.validate() ? true:false;
 }
 
 pristine.addValidator(hashtagInput, isHashtagValid, returnError);
