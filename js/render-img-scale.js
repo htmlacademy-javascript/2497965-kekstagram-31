@@ -13,7 +13,7 @@ function makeImgSmaller () {
   if (scale > MIN) {
     scale -= STEP;
     scaleValue = scale + "%";
-    imgPreview.style.transform.scale = scale / 100;
+    imgPreview.style.transform = scale(scale / 100);
   }
 }
 
