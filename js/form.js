@@ -2,7 +2,7 @@ import {isEscapeKey} from './util.js';
 import {isCommentValid, isHashtagValid, returnError, COMMENT_MAX_LENGTH} from './input-validate.js';
 
 const uploadPhotoForm = document.querySelector('.img-upload__form');
-const uploadFile = uploadPhotoForm.querySelector('#upload-file');
+const uploadImage = uploadPhotoForm.querySelector('#upload-file');
 const renderPhotoForm = uploadPhotoForm.querySelector('.img-upload__overlay');
 const body = document.querySelector('body');
 const closeButton = renderPhotoForm.querySelector('.img-upload__cancel');
@@ -21,6 +21,7 @@ function closeForm() {
   body.classList.remove('modal-open');
   closeButton.removeEventListener('click', closeForm);
   document.removeEventListener('keydown', onDocumentKeydown);
+  uploadImage.value = '';
   commentInput.value = '';
   hashtagInput.value = '';
 }
@@ -45,7 +46,7 @@ function onDocumentKeydown(evt) {
   }
 }
 
-uploadFile.addEventListener('change', openForm);
+uploadImage.addEventListener('change', openForm);
 
 hashtagInput.addEventListener('input', setSubmitButtonAttribute);
 
