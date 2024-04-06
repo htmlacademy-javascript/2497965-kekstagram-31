@@ -35,4 +35,4 @@ function resetScale() {
   setScale(DEFAULT_SCALE);
 }
 
-export {resetScale}
+export {resetScale};
