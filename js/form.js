@@ -35,15 +35,18 @@ function openForm() {
 
 function onDocumentKeydown(evt) {
   if (isEscapeKey(evt)) {
-    if(document.activeElement === hashtagInput ||
-    document.activeElement === commentInput) {
-      evt.preventDefault();
-      evt.stopPropagnation();
+    if(isFieldOnFocus) {
+      return;
     } else {
       evt.preventDefault();
       closeForm();
     }
   }
+}
+
+function isFieldOnFocus () {
+  return document.activeElement === hashtagInput ||
+  document.activeElement === commentInput;
 }
 
 uploadImage.addEventListener('change', openForm);
@@ -53,7 +56,8 @@ hashtagInput.addEventListener('input', setSubmitButtonAttribute);
 commentInput.addEventListener('input', setSubmitButtonAttribute);
 
 function setSubmitButtonAttribute () {
-  submitButton.disabled = !pristine.validate();
+  const isValid = !(pristine.validate());
+  submitButton.disabled = isValid;
 }
 
 pristine.addValidator(hashtagInput, isHashtagValid, returnError);
