@@ -40,7 +40,6 @@ function onDocumentKeydown(evt) {
     if (isFieldOnFocus) {
       return;
     }
-    evt.preventDefault();
     closeForm();
   }
 }
