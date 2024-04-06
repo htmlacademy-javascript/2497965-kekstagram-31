@@ -59,4 +59,3 @@ const pristine = new Pristine(uploadPhotoForm, {
 
 pristine.addValidator(hashtagInput, isHashtagValid, returnError);
 pristine.addValidator(commentInput, isCommentValid, `Комментарий не может быть длиннее ${COMMENT_MAX_LENGTH}`);
-
