@@ -62,11 +62,7 @@ function isUnique(hashtag, array) {
 }
 
 function isCommentValid(value) {
-  if (value.length > COMMENT_MAX_LENGTH) {
-    return false;
-  } else {
-    return true;
-  }
+  return value.length > COMMENT_MAX_LENGTH;
 }
 
 export {isHashtagValid, isCommentValid, returnError, COMMENT_MAX_LENGTH};
