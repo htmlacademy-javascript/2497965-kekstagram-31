@@ -2,6 +2,7 @@ const imgPreview = document.querySelector('.img-upload__preview img');
 const effectLevel = document.querySelector('.effect-level__value');
 const sliderContainer = document.querySelector('.img-upload__effect-level');
 const slider = sliderContainer.querySelector('.effect-level__slider');
+const effectList = document.querySelector('.effects__list');
 
 const filterSettings = {
   chrome: {
@@ -56,10 +57,10 @@ const filterSettings = {
 noUiSlider.create(slider, {
   range: {
     min: 0,
-    max: 100,
+    max: 1,
   },
-  start: 80,
-  step: 1,
+  start: 1,
+  step: 0.1,
   connect: 'lower',
   format: {
     to: function (value) {
@@ -73,3 +74,18 @@ noUiSlider.create(slider, {
     },
   },
 });
+
+function getCurrentFilter () {
+  return effectList.querySelector('.effects__radio:checked').value;
+}
+
+function updateSlider () {
+  effectLevel.value = slider.noUiSlider.get();
+
+
+}
+
+effectList.addEventListener('change', () => {
+  imgPreview.classList.add(`.effects__preview--${getCurrentFilter()}`);
+})
+slider.noUiSlider.on('update', updateSlider);
