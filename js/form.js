@@ -21,6 +21,8 @@ function closeForm() {
   body.classList.remove('modal-open');
   closeButton.removeEventListener('click', closeForm);
   document.removeEventListener('keydown', onDocumentKeydown);
+  commentInput.value = '';
+  hashtagInput.value = '';
 }
 
 function openForm() {
