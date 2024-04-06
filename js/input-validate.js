@@ -5,14 +5,14 @@ const HASHTAG_VALID_REG = /^#[a-zа-яё0-9]{1,19}$/i;
 let errorMessage = '';
 function returnError() {
   return errorMessage;
-};
+}
 
 function isHashtagValid(value) {
-  const hashtagString = value.trim().toLowerCase()
+  const hashtagString = value.trim().toLowerCase();
   errorMessage = '';
   if (hashtagString.length === 0) {
     return true;
-  };
+  }
   const hashtagArray = hashtagString.split(' ');
   if (hashtagArray.length > HASHTAG_MAX_COUNT) {
     errorMessage = `Нельзя указать больше ${HASHTAG_MAX_COUNT} хэштегов`;
