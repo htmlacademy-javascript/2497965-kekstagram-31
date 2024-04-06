@@ -54,7 +54,7 @@ function hasRightMask(hashtag) {
 }
 
 function isUnique(hashtag, array) {
-  if (array.includes(hashtag, array.indexOf(hashtag)+1)) {
+  if (array.includes(hashtag, array.indexOf(hashtag) + 1)) {
     errorMessage = 'Один и тот же хэштег не может быть использован дважды';
     return false;
   }
