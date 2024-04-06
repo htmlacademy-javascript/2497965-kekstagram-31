@@ -12,15 +12,17 @@ function makeImgSmaller () {
   let scale = Number(scaleValue.value.slice(0, -1))
   if (scale > MIN) {
     scale -= STEP;
-    scaleValue = scale + "%";
-    imgPreview.style.transform = scale(scale / 100);
+    scaleValue.value = scale + "%";
+    imgPreview.style.transform = `scale(${scaleValue.value / 100})`;
   }
 }
 
 function makeImgBigger () {
-  if (scaleValue.value < MAX) {
-    scaleValue.value += STEP;
-    imgPreview.style.transform.scale = scaleValue.value / 100;
+  let scale = Number(scaleValue.value.slice(0, -1))
+  if (scale < MAX) {
+    scale += STEP;
+    scaleValue.value = scale + "%";
+    imgPreview.style.transform = `scale(${scaleValue.value / 100})`;
   }
 }
 scaleSmaller.addEventListener('click', makeImgSmaller);
