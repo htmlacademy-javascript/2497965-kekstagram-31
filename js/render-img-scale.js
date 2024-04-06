@@ -14,7 +14,7 @@ function makeImgSmaller () {
   if (currentPictureScale > MIN) {
     currentPictureScale -= STEP;
     scaleValue.value = currentPictureScale + "%";
-    imgPreview.style.transform = `scale(${scaleValue.value / 100})`;
+    imgPreview.style.transform = `scale(${currentPictureScale / 100})`;
   }
 }
 
@@ -22,7 +22,7 @@ function makeImgBigger () {
   if (currentPictureScale < MAX) {
     currentPictureScale += STEP;
     scaleValue.value = currentPictureScale + "%";
-    imgPreview.style.transform = `scale(${scaleValue.value / 100})`;
+    imgPreview.style.transform = `scale(${currentPictureScale / 100})`;
   }
 }
 scaleSmaller.addEventListener('click', makeImgSmaller);
