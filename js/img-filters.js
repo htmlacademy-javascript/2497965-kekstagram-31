@@ -76,7 +76,9 @@ noUiSlider.create(slider, {
 });
 
 function getCurrentFilter () {
+  console.log(effectList.querySelector('input[name=effect]:checked').value);
   return effectList.querySelector('input[name=effect]:checked').value;
+
 }
 
 function updateSlider () {
