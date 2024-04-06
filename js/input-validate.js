@@ -23,10 +23,9 @@ function isHashtagValid(value) {
     !checkHastagLength(hashtag) ||
     !hasRightMask(hashtag) ||
     !isUnique(hashtag)) {
-      return false;
+      return true;
     }
-    errorMessage = '';
-    return true;
+    return false;
   });
 }
 
