@@ -69,4 +69,4 @@ function isCommentValid(value) {
   }
 }
 
-export {isHashtagValid, isCommentValid, returnError};
+export {isHashtagValid, isCommentValid, returnError, COMMENT_MAX_LENGTH};

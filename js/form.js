@@ -1,5 +1,5 @@
 import {isEscapeKey} from './util.js';
-import {isCommentValid, isHashtagValid, returnError} from './input-validate.js';
+import {isCommentValid, isHashtagValid, returnError, COMMENT_MAX_LENGTH} from './input-validate.js';
 
 const uploadPhotoForm = document.querySelector('.img-upload__form');
 const uploadFile = uploadPhotoForm.querySelector('#upload-file');
