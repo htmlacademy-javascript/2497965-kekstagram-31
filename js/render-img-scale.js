@@ -3,7 +3,7 @@ const MAX = 100;
 const MIN =25;
 const DEFAULT_SCALE = 100;
 
-const imgPreview = document.querySelector('.big-picture__preview img');
+const imgPreview = document.querySelector('.img-upload__preview img');
 const scaleContainer = document.querySelector('.img-upload__scale');
 const scaleSmaller = scaleContainer.querySelector('.scale__control--smaller');
 const scaleBigger = scaleContainer.querySelector('.scale__control--bigger');
@@ -19,10 +19,9 @@ function makeImgSmaller () {
 }
 
 function makeImgBigger () {
-  let scale = Number(scaleValue.value.slice(0, -1))
-  if (scale < MAX) {
-    scale += STEP;
-    scaleValue.value = scale + "%";
+  if (currentPictureScale < MAX) {
+    currentPictureScale += STEP;
+    scaleValue.value = currentPictureScale + "%";
     imgPreview.style.transform = `scale(${scaleValue.value / 100})`;
   }
 }
