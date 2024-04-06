@@ -13,17 +13,26 @@ let currentPictureScale = DEFAULT_SCALE;
 function makeImgSmaller () {
   if (currentPictureScale > MIN) {
     currentPictureScale -= STEP;
-    scaleValue.value = currentPictureScale + "%";
-    imgPreview.style.transform = `scale(${currentPictureScale / 100})`;
+    setScale(currentPictureScale);
   }
 }
 
 function makeImgBigger () {
   if (currentPictureScale < MAX) {
     currentPictureScale += STEP;
-    scaleValue.value = currentPictureScale + "%";
-    imgPreview.style.transform = `scale(${currentPictureScale / 100})`;
+    setScale(currentPictureScale);
   }
 }
 scaleSmaller.addEventListener('click', makeImgSmaller);
 scaleBigger.addEventListener('click', makeImgBigger);
+
+function setScale (scale) {
+  scaleValue.value = scale + '%';
+  imgPreview.style.transform = `scale(${scale / 100})`;
+}
+
+function resetScale() {
+  setScale(DEFAULT_SCALE);
+}
+
+export {resetScale}
