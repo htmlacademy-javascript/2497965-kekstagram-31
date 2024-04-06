@@ -39,11 +39,17 @@ function onDocumentKeydown(evt) {
 
 uploadFile.addEventListener('change', openForm);
 
-hashtagInput.addEventListener('input', () => {
+hashtagInput.addEventListener('input', setSubmitButtonAttribute);
+
+commentInput.addEventListener('input', setSubmitButtonAttribute);
+
+function setSubmitButtonAttribute () {
   if (!pristine.validate()) {
     submitButton.setAttribute("disabled", "true");
-  }
-});
+  } else {
+    submitButton.setAttribute("disabled", "false");
+  };
+}
 
 const pristine = new Pristine(uploadPhotoForm, {
   classTo: 'img-upload__field-wrapper',
