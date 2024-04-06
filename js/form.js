@@ -8,6 +8,7 @@ const body = document.querySelector('body');
 const closeButton = renderPhotoForm.querySelector('.img-upload__cancel');
 const hashtagInput = uploadPhotoForm.querySelector('.text__hashtags');
 const commentInput = uploadPhotoForm.querySelector('.text__description');
+const submitButton = document.querySelector('#upload-submit');
 
 function closeForm() {
   renderPhotoForm.classList.add('hidden');
@@ -37,7 +38,12 @@ function onDocumentKeydown(evt) {
 }
 
 uploadFile.addEventListener('change', openForm);
-//hashtagInput.addEventListener('input', isHashtagValid(hashtagInput.value));
+
+hashtagInput.addEventListener('input', () => {
+  if (!pristine.validate()) {
+    submitButton.setAttribute("disabled", "true");
+  }
+});
 
 const pristine = new Pristine(uploadPhotoForm, {
   classTo: 'img-upload__field-wrapper',
@@ -46,5 +52,5 @@ const pristine = new Pristine(uploadPhotoForm, {
 });
 
 pristine.addValidator(hashtagInput, isHashtagValid, returnError);
-pristine.addValidator(commentInput, isCommentValid, returnError);
+pristine.addValidator(commentInput, isCommentValid, `Комментарий не может быть длиннее ${COMMENT_MAX_LENGTH}`);
 
