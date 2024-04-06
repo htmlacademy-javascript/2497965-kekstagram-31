@@ -76,7 +76,7 @@ noUiSlider.create(slider, {
 });
 
 function getCurrentFilter () {
-  return effectList.querySelector('.effects__radio:checked').value;
+  return effectList.querySelector('.effects__radio:checked').value.trim();
 }
 
 function updateSlider () {
