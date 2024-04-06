@@ -19,13 +19,13 @@ function isHashtagValid(value) {
     return false;
   }
   hashtagArray.forEach((hashtag) => {
-    if (!hasOnlyNumSign(hashtag) ||
+    if (hasOnlyNumSign(hashtag) ||
     !checkHastagLength(hashtag) ||
     !hasRightMask(hashtag) ||
     !isUnique(hashtag)) {
-      return true;
+      return false;
     }
-    return false;
+    return true;
   });
 }
 
