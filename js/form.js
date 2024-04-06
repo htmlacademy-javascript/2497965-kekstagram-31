@@ -1,6 +1,7 @@
 import {isEscapeKey} from './util.js';
 import {isCommentValid, isHashtagValid, returnError, COMMENT_MAX_LENGTH} from './input-validate.js';
 import {resetScale} from './render-img-scale.js';
+import './img-filters.js';
 
 const uploadPhotoForm = document.querySelector('.img-upload__form');
 const uploadImage = uploadPhotoForm.querySelector('#upload-file');
