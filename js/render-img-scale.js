@@ -9,7 +9,7 @@ const scaleBigger = scaleContainer.querySelector('.scale__control--bigger');
 const scaleValue = scaleContainer.querySelector('.scale__control--value');
 
 function makeImgSmaller () {
-  const scale = Number(scaleValue.value.slice(0, -1))
+  let scale = Number(scaleValue.value.slice(0, -1))
   if (scale > MIN) {
     scale -= STEP;
     scaleValue = scale + "%";
