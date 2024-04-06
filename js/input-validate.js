@@ -25,6 +25,7 @@ function isHashtagValid(value) {
     !isUnique(hashtag)) {
       return false;
     }
+    errorMessage = '';
     return true;
   });
 }
@@ -39,7 +40,7 @@ function hasOnlyNumSign(hashtag) {
 
 function checkHastagLength(hashtag) {
   if (hashtag.length > HASHTAG_MAX_LENGTH) {
-    errorMessage = `Хэштег не может быть длиннее ${HASHTAG_MAX_LENGTH}`;
+    errorMessage = `Хэштег не может быть длиннее ${HASHTAG_MAX_LENGTH} символов`;
     return false;
   }
   return true;
