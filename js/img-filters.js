@@ -119,8 +119,7 @@ function updateSlider () {
 }
 
 function setFilterOnImg () {
-  //imgPreview.classList.remove(`effects__preview--${filter}`);
-  //console.log(filter);
+  resetFilter();
   filter = getCurrentFilter();
   //console.log(filter);
   if (filter !== 'none') {
