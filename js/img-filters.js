@@ -3,6 +3,7 @@ const effectLevel = document.querySelector('.effect-level__value');
 const sliderContainer = document.querySelector('.img-upload__effect-level');
 const slider = sliderContainer.querySelector('.effect-level__slider');
 const effectList = document.querySelector('.img-upload__effects');
+let filter = 'none';
 
 const filterSettings = {
   chrome: {
@@ -87,7 +88,8 @@ function updateSlider () {
 }
 
 effectList.addEventListener('change', () => {
-  const filter = getCurrentFilter();
+  imgPreview.classList.remove(`effects__preview--${filter}`);
+  filter = getCurrentFilter();
   imgPreview.classList.add(`effects__preview--${filter}`);
 })
 slider.noUiSlider.on('update', updateSlider);
