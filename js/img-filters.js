@@ -131,3 +131,5 @@ function setFilterOnImg () {
 
 effectList.addEventListener('change', setFilterOnImg);
 slider.noUiSlider.on('update', updateSlider);
+
+export {resetFilter};
