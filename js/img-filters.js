@@ -103,6 +103,7 @@ function updateSlider () {
 function setFilterOnImg () {
   imgPreview.classList.remove(`effects__preview--${filter}`);
   filter = getCurrentFilter();
+  console.log(filter);
   if (filter === 'none') {
     slider.classList.add('hidden');
   } else {
@@ -112,5 +113,5 @@ function setFilterOnImg () {
   }
 }
 
-effectList.addEventListener('change', setFilterOnImg())
+effectList.addEventListener('change', setFilterOnImg)
 slider.noUiSlider.on('update', updateSlider);
