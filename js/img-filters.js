@@ -4,6 +4,7 @@ const sliderContainer = document.querySelector('.img-upload__effect-level');
 const slider = sliderContainer.querySelector('.effect-level__slider');
 const effectList = document.querySelector('.img-upload__effects');
 let filter = 'none';
+hideSlider();
 
 function hideSlider () {
   slider.classList.add('hidden');
@@ -96,7 +97,6 @@ noUiSlider.create(slider, {
 
 function getCurrentFilter () {
   return effectList.querySelector('input[name=effect]:checked').value;
-
 }
 
 function updateEffectLevel (effect, level) {
@@ -116,9 +116,9 @@ function setFilterOnImg () {
   imgPreview.classList.add(`effects__preview--${filter}`);
   console.log(filter);
   if (filter === 'none') {
-    slider.classList.add('hidden');
+    hideSlider();
   } else {
-    slider.classList.remove('hidden');
+    showSlider();
     slider.noUiSlider.updateOptions(filterSettings[filter]);
   }
 }
