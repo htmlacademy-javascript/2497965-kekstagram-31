@@ -41,6 +41,7 @@ function onDocumentKeydown(evt) {
     if (isFieldOnFocus) {
       evt.preventDefault();
       evt.stopPropagation();
+      return;
     }
     closeForm();
   }
