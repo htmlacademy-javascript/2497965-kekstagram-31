@@ -39,9 +39,9 @@ const filterSettings = {
       min: 0,
       max: 1,
     },
-  start: 1,
-  step: 0.1,
-  style: 'sepia',
+    start: 1,
+    step: 0.1,
+    style: 'sepia',
   },
   marvin: {
     range: {
@@ -101,7 +101,7 @@ function getCurrentFilter () {
 
 function updateEffectLevel (effect, level) {
   const filterSet = filterSettings[effect];
-  return `${filterSet.style}(${level}${filterSet.unit || ''})`
+  return `${filterSet.style}(${level}${filterSet.unit || ''})`;
 }
 
 function updateSlider () {
@@ -111,10 +111,10 @@ function updateSlider () {
 
 function setFilterOnImg () {
   imgPreview.classList.remove(`effects__preview--${filter}`);
-  console.log(filter);
+  //console.log(filter);
   filter = getCurrentFilter();
   imgPreview.classList.add(`effects__preview--${filter}`);
-  console.log(filter);
+  //console.log(filter);
   if (filter === 'none') {
     hideSlider();
   } else {
@@ -123,5 +123,5 @@ function setFilterOnImg () {
   }
 }
 
-effectList.addEventListener('change', setFilterOnImg)
+effectList.addEventListener('change', setFilterOnImg);
 slider.noUiSlider.on('update', updateSlider);

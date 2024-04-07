@@ -1,13 +1,13 @@
 const STEP = 25;
 const MAX = 100;
-const MIN =25;
+const MIN = 25;
 const DEFAULT_SCALE = 100;
 
 const imgPreview = document.querySelector('.img-upload__preview img');
 const scaleContainer = document.querySelector('.img-upload__scale');
 const scaleSmaller = scaleContainer.querySelector('.scale__control--smaller');
 const scaleBigger = scaleContainer.querySelector('.scale__control--bigger');
-let scaleValue = scaleContainer.querySelector('.scale__control--value');
+const scaleValue = scaleContainer.querySelector('.scale__control--value');
 let currentPictureScale = DEFAULT_SCALE;
 
 function makeImgSmaller () {
@@ -27,7 +27,7 @@ scaleSmaller.addEventListener('click', makeImgSmaller);
 scaleBigger.addEventListener('click', makeImgBigger);
 
 function setScale (scale) {
-  scaleValue.value = scale + '%';
+  scaleValue.value = `${scale}%`;
   imgPreview.style.transform = `scale(${scale / 100})`;
 }
 
