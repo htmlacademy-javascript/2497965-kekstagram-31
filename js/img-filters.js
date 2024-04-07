@@ -91,5 +91,10 @@ effectList.addEventListener('change', () => {
   imgPreview.classList.remove(`effects__preview--${filter}`);
   filter = getCurrentFilter();
   imgPreview.classList.add(`effects__preview--${filter}`);
+  if (filter === 'none') {
+    slider.classList.add('hidden');
+  } else {
+    slider.noUiSlider.updateOptions(filterSettings[filter]);
+  }
 })
 slider.noUiSlider.on('update', updateSlider);
