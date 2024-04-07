@@ -101,6 +101,9 @@ function getCurrentFilter () {
 
 function updateEffectLevel (effect, level) {
   const filterSet = filterSettings[effect];
+  if (effect === 'none') {
+    return `${filterSet.style}`;
+  }
   return `${filterSet.style}(${level}${filterSet.unit || ''})`;
 }
 
