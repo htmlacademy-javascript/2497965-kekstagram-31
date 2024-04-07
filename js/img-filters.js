@@ -6,6 +6,15 @@ const effectList = document.querySelector('.img-upload__effects');
 let filter = 'none';
 
 const filterSettings = {
+  none: {
+    range: {
+      min: 0,
+      max: 100,
+    },
+    start: 100,
+    step: 1,
+    style: 'none',
+  },
   chrome: {
     range: {
       min: 0,
@@ -87,21 +96,21 @@ function updateEffectLevel (effect, level) {
 }
 
 function updateSlider () {
-  if (filter === 'none') {
-    return;
-  }
   effectLevel.value = slider.noUiSlider.get();
   imgPreview.style.filter = updateEffectLevel(filter, effectLevel.value);
 }
 
-effectList.addEventListener('change', () => {
+function setFilterOnImg () {
   imgPreview.classList.remove(`effects__preview--${filter}`);
   filter = getCurrentFilter();
-  imgPreview.classList.add(`effects__preview--${filter}`);
   if (filter === 'none') {
     slider.classList.add('hidden');
   } else {
+    slider.classList.remove('hidden');
+    imgPreview.classList.add(`effects__preview--${filter}`);
     slider.noUiSlider.updateOptions(filterSettings[filter]);
   }
-})
+}
+
+effectList.addEventListener('change', setFilterOnImg())
 slider.noUiSlider.on('update', updateSlider);
