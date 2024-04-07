@@ -110,7 +110,7 @@ function updateSlider () {
 }
 
 function setFilterOnImg () {
-  imgPreview.classList.remove(`effects__preview--${filter}`);
+  //imgPreview.classList.remove(`effects__preview--${filter}`);
   //console.log(filter);
   filter = getCurrentFilter();
   //console.log(filter);
@@ -118,7 +118,7 @@ function setFilterOnImg () {
     hideSlider();
   } else {
     showSlider();
-    imgPreview.classList.add(`effects__preview--${filter}`);
+    //imgPreview.classList.add(`effects__preview--${filter}`);
     slider.noUiSlider.updateOptions(filterSettings[filter]);
   }
 }
