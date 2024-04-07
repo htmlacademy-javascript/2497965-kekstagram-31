@@ -104,12 +104,12 @@ function setFilterOnImg () {
   imgPreview.classList.remove(`effects__preview--${filter}`);
   console.log(filter);
   filter = getCurrentFilter();
+  imgPreview.classList.add(`effects__preview--${filter}`);
   console.log(filter);
   if (filter === 'none') {
     slider.classList.add('hidden');
   } else {
     slider.classList.remove('hidden');
-    imgPreview.classList.add(`effects__preview--${filter}`);
     slider.noUiSlider.updateOptions(filterSettings[filter]);
   }
 }
