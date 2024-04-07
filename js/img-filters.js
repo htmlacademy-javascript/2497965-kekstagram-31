@@ -5,6 +5,15 @@ const slider = sliderContainer.querySelector('.effect-level__slider');
 const effectList = document.querySelector('.img-upload__effects');
 let filter = 'none';
 
+function hideSlider () {
+  slider.classList.add('hidden');
+  sliderContainer.classList.add('hidden');
+}
+
+function showSlider () {
+  slider.classList.remove('hidden');
+  sliderContainer.classList.remove('hidden');
+}
 const filterSettings = {
   none: {
     range: {
