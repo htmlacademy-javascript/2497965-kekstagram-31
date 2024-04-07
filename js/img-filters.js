@@ -32,7 +32,7 @@ const filterSettings = {
     },
     start: 1,
     step: 0.1,
-    style: 'glayscale',
+    style: 'grayscale',
   },
   sepia: {
     range: {
