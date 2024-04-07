@@ -87,9 +87,11 @@ function updateEffectLevel (effect, level) {
 }
 
 function updateSlider () {
+  if (filter === 'none') {
+    return;
+  }
   effectLevel.value = slider.noUiSlider.get();
   imgPreview.style.filter = updateEffectLevel(filter, effectLevel.value);
-
 }
 
 effectList.addEventListener('change', () => {
