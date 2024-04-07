@@ -81,9 +81,14 @@ function getCurrentFilter () {
 
 }
 
+function updateEffectLevel (effect, level) {
+  const filterSet = filterSettings[effect];
+  return `${level}${filterSet.unit}`
+}
+
 function updateSlider () {
   effectLevel.value = slider.noUiSlider.get();
-
+  imgPreview.style.filter = updateEffectLevel(filter, effectLevel.value);
 
 }
 
