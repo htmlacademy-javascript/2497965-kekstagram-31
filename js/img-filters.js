@@ -83,7 +83,7 @@ function getCurrentFilter () {
 
 function updateEffectLevel (effect, level) {
   const filterSet = filterSettings[effect];
-  return `${level}${filterSet.unit}`
+  return `${filterSet.style}(${level}${filterSet.unit || ''})`
 }
 
 function updateSlider () {
