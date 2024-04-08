@@ -24,6 +24,10 @@ function numberOfHashtags (value) {
 function checkHashtagLength (value) {
   return stringToArray(value).every((item) => item.length <= HASHTAG_MAX_LENGTH);
 }
+
+function isHashtagUnique(value) {
+  return !(stringToArray(value).some((item, number, array) => array.includes(item, number + 1)));
+}
 // function isHashtagValid(value) {
 //   const hashtagArray = value.toLowerCase().trim().split(/\s+/);
 //   if (hashtagArray.length > HASHTAG_MAX_COUNT) {
@@ -39,30 +43,6 @@ function checkHashtagLength (value) {
 //     }
 //     return true;
 //   });
-// }
-
-// function hasOnlyNumSign(hashtag) {
-//   if (hashtag === '#') {
-//     errorMessage = 'Хэштег не может состоять только из одной решётки';
-//     return false;
-//   }
-//   return true;
-// }
-
-// function checkHastagLength(hashtag) {
-//   if (hashtag.length > HASHTAG_MAX_LENGTH) {
-//     errorMessage = `Хэштег не может быть длиннее ${HASHTAG_MAX_LENGTH} символов`;
-//     return false;
-//   }
-//   return true;
-// }
-
-// function hasRightMask(hashtag) {
-//   if (!HASHTAG_VALID_REG.test(hashtag)) {
-//     errorMessage = 'Хэштег должен начинаться с символа # и состоять из букв и чисел';
-//     return false;
-//   }
-//   return true;
 // }
 
 // function isHashtagUnique(array) {
@@ -83,4 +63,4 @@ function isCommentValid(value) {
 
 export {isHashtagValid, isCommentValid, numberOfHashtags,
   COMMENT_MAX_LENGTH, HASHTAG_MAX_COUNT, HASHTAG_MAX_LENGTH,
-checkHashtagLength};
+checkHashtagLength, isHashtagUnique};

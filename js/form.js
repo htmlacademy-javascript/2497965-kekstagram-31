@@ -1,6 +1,6 @@
 import {isEscapeKey} from './util.js';
 import {isCommentValid, isHashtagValid, numberOfHashtags, HASHTAG_MAX_COUNT,
-   COMMENT_MAX_LENGTH, HASHTAG_MAX_LENGTH, checkHashtagLength} from './input-validate.js';
+   COMMENT_MAX_LENGTH, HASHTAG_MAX_LENGTH, checkHashtagLength, isHashtagUnique} from './input-validate.js';
 import {resetScale} from './render-img-scale.js';
 import {resetFilter} from './img-filters.js';
 
@@ -71,5 +71,7 @@ pristine.addValidator(hashtagInput, numberOfHashtags,
   `Нельзя указать больше ${HASHTAG_MAX_COUNT} хэштегов`);
 pristine.addValidator(hashtagInput, checkHashtagLength,
   `Хэштег не может быть длиннее ${HASHTAG_MAX_LENGTH} символов`);
+pristine.addValidator(hashtagInput, isHashtagUnique,
+  'Хэштег должен быть уникален');
 pristine.addValidator(commentInput, isCommentValid,
   `Комментарий не может быть длиннее ${COMMENT_MAX_LENGTH}`);
