@@ -13,22 +13,22 @@ const body = document.querySelector('body');
 function onDocumentKeydown(evt) {
   if (isEscapeKey(evt)) {
     evt.preventDefault();
-    closeBigImage();
+    onCloseButtonClick();
   }
 }
 
-function closeBigImage() {
+function onCloseButtonClick() {
   container.classList.add('hidden');
   body.classList.remove('modal-open');
   clearComments();
   document.removeEventListener('keydown', onDocumentKeydown);
-  closeButton.removeEventListener('click', closeBigImage);
+  closeButton.removeEventListener('click', onCloseButtonClick);
 }
 
 function openBigImage(currentPictureId, postsData) {
   const currentPicture = postsData.find((post) => post.id === Number(currentPictureId));
   document.addEventListener('keydown', onDocumentKeydown);
-  closeButton.addEventListener('click', closeBigImage);
+  closeButton.addEventListener('click', onCloseButtonClick);
   bigImage.src = currentPicture.url;
   bigImage.alt = currentPicture.description;
   likes.textContent = currentPicture.likes;
