@@ -13,6 +13,10 @@ function stringToArray (value) {
 function isHashtagValid (value) {
   return stringToArray(value).every((item) => HASHTAG_VALID_REG.test(item));
 }
+
+function numberOfHashtags (value) {
+  return stringToArray(value).length <= HASHTAG_MAX_COUNT;
+}
 // function isHashtagValid(value) {
 //   const hashtagArray = value.toLowerCase().trim().split(/\s+/);
 //   if (hashtagArray.length > HASHTAG_MAX_COUNT) {
@@ -70,4 +74,5 @@ function isCommentValid(value) {
   return !(value.length > COMMENT_MAX_LENGTH);
 }
 
-export {isHashtagValid, isCommentValid, COMMENT_MAX_LENGTH};
+export {isHashtagValid, isCommentValid, numberOfHashtags,
+  COMMENT_MAX_LENGTH, HASHTAG_MAX_COUNT};
