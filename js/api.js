@@ -7,7 +7,7 @@ const Route = {
 
 const Method = {
   GET: 'GET',
-  POST: 'POSTi',
+  POST: 'POST',
 };
 
 const ErrorText = {
