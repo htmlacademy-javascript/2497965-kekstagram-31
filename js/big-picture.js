@@ -41,9 +41,9 @@ function openBigImage(currentPictureId, postsData) {
 function initBigPicture (photos) {
   thumbnailsContainer.addEventListener('click', ({target}) => {
     const currentPicture = target.closest('.picture');
-    const id = currentPicture.dataset.pictureId;
+    // const id = currentPicture.dataset.pictureId;
     if (id) {
-      openBigImage(id, photos);
+      openBigImage(currentPicture.dataset.pictureId, photos);
     }
   });
 }
