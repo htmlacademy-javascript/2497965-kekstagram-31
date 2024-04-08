@@ -1,5 +1,5 @@
 import {isEscapeKey} from './util.js';
-import {postsData} from './data.js';
+// import {postsData} from './data.js';
 import {clearComments, renderComments} from './render-comments.js';
 
 const thumbnailsContainer = document.querySelector('.pictures');
@@ -9,13 +9,6 @@ const likes = container.querySelector('.big-picture__social').querySelector('.li
 const imageDescription = container.querySelector('.big-picture__social').querySelector('.social__caption');
 const closeButton = container.querySelector('.big-picture__cancel');
 const body = document.querySelector('body');
-
-thumbnailsContainer.addEventListener('click', (evt) => {
-  const currentPicture = evt.target.closest('.picture');
-  if (currentPicture) {
-    openBigImage(currentPicture.dataset.pictureId);
-  }
-});
 
 function onDocumentKeydown(evt) {
   if (isEscapeKey(evt)) {
@@ -32,7 +25,7 @@ function closeBigImage() {
   closeButton.removeEventListener('click', closeBigImage);
 }
 
-function openBigImage(currentPictureId) {
+function openBigImage(currentPictureId, postsData) {
   const currentPicture = postsData.find((post) => post.id === Number(currentPictureId));
   document.addEventListener('keydown', onDocumentKeydown);
   closeButton.addEventListener('click', closeBigImage);
@@ -45,3 +38,14 @@ function openBigImage(currentPictureId) {
   body.classList.add('modal-open');
 }
 
+function initBigPicture (photos) {
+  thumbnailsContainer.addEventListener('click', ({target}) => {
+    const currentPicture = target.closest('.picture');
+    const id = currentPicture.dataset.pictureId;
+    if (id) {
+      openBigImage(id, photos);
+    }
+  });
+}
+
+export {initBigPicture};
