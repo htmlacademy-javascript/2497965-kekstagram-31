@@ -27,7 +27,7 @@ fetch(`${BASE_URL}${route}`, {method, body})
     throw new Error(errorText);
   });
 
-const getData = () => loadData(Route.GET, ErrorText.GET_DATA);
-const sendData = (body) => loadData(Route.SEND, ErrorText.SEND_DATA, Method.POST, body);
+const getData = () => loadData(Route.GET_DATA, ErrorText.GET_DATA);
+const sendData = (body) => loadData(Route.SEND_DATA, ErrorText.SEND_DATA, Method.POST, body);
 
 export {getData, sendData};
