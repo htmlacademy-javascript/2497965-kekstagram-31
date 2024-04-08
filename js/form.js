@@ -1,6 +1,5 @@
 import {isEscapeKey} from './util.js';
-import {isCommentValid, isHashtagValid, numberOfHashtags, HASHTAG_MAX_COUNT,
-   COMMENT_MAX_LENGTH, HASHTAG_MAX_LENGTH, checkHashtagLength, isHashtagUnique} from './input-validate.js';
+import * as validate from './input-validate.js';
 import {resetScale} from './render-img-scale.js';
 import {resetFilter} from './img-filters.js';
 import {sendData} from './api.js';
@@ -89,13 +88,13 @@ function onUploadPhotoFormSubmit (evt) {
 uploadImage.addEventListener('change', onUploadImageChange);
 uploadPhotoForm.addEventListener ('submit', onUploadPhotoFormSubmit);
 
-pristine.addValidator(hashtagInput, isHashtagValid,
+pristine.addValidator(hashtagInput, validate.isHashtagValid,
    'Хэштег должен начинаться с символа # и состоять из букв и чисел');
-pristine.addValidator(hashtagInput, numberOfHashtags,
-  `Нельзя указать больше ${HASHTAG_MAX_COUNT} хэштегов`);
-pristine.addValidator(hashtagInput, checkHashtagLength,
-  `Хэштег не может быть длиннее ${HASHTAG_MAX_LENGTH} символов`);
-pristine.addValidator(hashtagInput, isHashtagUnique,
+pristine.addValidator(hashtagInput, validate.numberOfHashtags,
+  `Нельзя указать больше ${validate.HASHTAG_MAX_COUNT} хэштегов`);
+pristine.addValidator(hashtagInput, validate.checkHashtagLength,
+  `Хэштег не может быть длиннее ${validate.HASHTAG_MAX_LENGTH} символов`);
+pristine.addValidator(hashtagInput, validate.isHashtagUnique,
   'Хэштег должен быть уникален');
-pristine.addValidator(commentInput, isCommentValid,
-  `Комментарий не может быть длиннее ${COMMENT_MAX_LENGTH}`);
+pristine.addValidator(commentInput, validate.isCommentValid,
+  `Комментарий не может быть длиннее ${validate.COMMENT_MAX_LENGTH} символов`);

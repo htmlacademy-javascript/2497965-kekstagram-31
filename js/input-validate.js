@@ -30,6 +30,3 @@ function isCommentValid(value) {
   return value.length <= COMMENT_MAX_LENGTH;
 }
 
-export {isHashtagValid, isCommentValid, numberOfHashtags,
-  COMMENT_MAX_LENGTH, HASHTAG_MAX_COUNT, HASHTAG_MAX_LENGTH,
-checkHashtagLength, isHashtagUnique};
