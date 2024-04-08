@@ -42,7 +42,7 @@ function initBigPicture (photos) {
   thumbnailsContainer.addEventListener('click', ({target}) => {
     const currentPicture = target.closest('.picture');
     // const id = currentPicture.dataset.pictureId;
-    if (id) {
+    if (currentPicture.dataset.pictureId) {
       openBigImage(currentPicture.dataset.pictureId, photos);
     }
   });
