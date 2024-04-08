@@ -19,7 +19,7 @@ function isHashtagValid(value) {
     return false;
   }
   hashtagArray.forEach((hashtag) => {
-    if (hasOnlyNumSign(hashtag) ||
+    if (//hasOnlyNumSign(hashtag) ||
     !checkHastagLength(hashtag) ||
     !hasRightMask(hashtag) ||
     !isUnique(hashtag)) {
@@ -29,13 +29,13 @@ function isHashtagValid(value) {
   });
 }
 
-function hasOnlyNumSign(hashtag) {
-  if (hashtag === '#') {
-    errorMessage = 'Хэштег не может состоять только из одной решётки';
-    return false;
-  }
-  return true;
-}
+// function hasOnlyNumSign(hashtag) {
+//   if (hashtag === '#') {
+//     errorMessage = 'Хэштег не может состоять только из одной решётки';
+//     return false;
+//   }
+//   return true;
+// }
 
 function checkHastagLength(hashtag) {
   if (hashtag.length > HASHTAG_MAX_LENGTH) {
