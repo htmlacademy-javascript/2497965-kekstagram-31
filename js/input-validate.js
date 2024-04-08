@@ -19,23 +19,23 @@ function isHashtagValid(value) {
     return false;
   }
   hashtagArray.forEach((hashtag) => {
-    if (//hasOnlyNumSign(hashtag) ||
+    if (hasOnlyNumSign(hashtag) ||
     !checkHastagLength(hashtag) ||
     !hasRightMask(hashtag) ||
-    !isUnique(hashtag)) {
+    !isHashtagUnique(hashtag)) {
       return false;
     }
     return true;
   });
 }
 
-// function hasOnlyNumSign(hashtag) {
-//   if (hashtag === '#') {
-//     errorMessage = 'Хэштег не может состоять только из одной решётки';
-//     return false;
-//   }
-//   return true;
-// }
+function hasOnlyNumSign(hashtag) {
+  if (hashtag === '#') {
+    errorMessage = 'Хэштег не может состоять только из одной решётки';
+    return false;
+  }
+  return true;
+}
 
 function checkHastagLength(hashtag) {
   if (hashtag.length > HASHTAG_MAX_LENGTH) {
@@ -53,12 +53,16 @@ function hasRightMask(hashtag) {
   return true;
 }
 
-function isUnique(hashtag, array) {
-  if (array.includes(hashtag, array.indexOf(hashtag) + 1)) {
-    errorMessage = 'Один и тот же хэштег не может быть использован дважды';
+function isHashtagUnique(array) {
+  if (array.some(isUnique(item, nubmer, array))) {
+    errorMessage = 'Хэштег должен быть уникален';
     return false;
   }
   return true;
+}
+
+function isUnique(item, number, array) {
+  array.includes(item, number + 1)
 }
 
 function isCommentValid(value) {
