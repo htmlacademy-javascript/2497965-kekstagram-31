@@ -3,6 +3,7 @@ import {isCommentValid, isHashtagValid, numberOfHashtags, HASHTAG_MAX_COUNT,
    COMMENT_MAX_LENGTH, HASHTAG_MAX_LENGTH, checkHashtagLength, isHashtagUnique} from './input-validate.js';
 import {resetScale} from './render-img-scale.js';
 import {resetFilter} from './img-filters.js';
+import {sendData} from './api.js';
 
 const uploadPhotoForm = document.querySelector('.img-upload__form');
 const uploadImage = uploadPhotoForm.querySelector('#upload-file');
@@ -31,7 +32,7 @@ function closeForm() {
   resetFilter();
 }
 
-function openForm() {
+function onUploadImageChange() {
   renderPhotoForm.classList.remove('hidden');
   body.classList.add('modal-open');
   closeButton.addEventListener('click', closeForm);
@@ -54,15 +55,27 @@ function isFieldOnFocus () {
   document.activeElement === commentInput;
 }
 
-uploadImage.addEventListener('change', openForm);
+async function uploadData () {
+  const formData = new FormData(uploadPhotoForm);
+  await sendData (formData);
+}
 
+function onUploadPhotoFormSubmit (evt) {
+  evt.preventDefault();
+  const isValid = pristine.validate();
+  if (isValid) {
+    uploadData();
+  }
+}
+
+uploadImage.addEventListener('change', onUploadImageChange);
 hashtagInput.addEventListener('input', setSubmitButtonAttribute);
-
 commentInput.addEventListener('input', setSubmitButtonAttribute);
+uploadPhotoForm.addEventListener ('submit', onUploadPhotoFormSubmit);
 
 function setSubmitButtonAttribute () {
-  const isValid = !(pristine.validate());
-  submitButton.disabled = isValid;
+  const isNotValid = !(pristine.validate());
+  submitButton.disabled = isNotValid;
 }
 
 pristine.addValidator(hashtagInput, isHashtagValid,
