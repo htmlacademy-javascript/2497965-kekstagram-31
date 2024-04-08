@@ -55,9 +55,20 @@ function isFieldOnFocus () {
   document.activeElement === commentInput;
 }
 
+function blockSubmitButton () {
+  submitButton.disabled = true;
+}
+
+function unblockSubmitButton () {
+  submitButton.disabled = false;
+}
+
 async function uploadData () {
   const formData = new FormData(uploadPhotoForm);
+  blockSubmitButton();
   await sendData (formData);
+  closeForm();
+  unblockSubmitButton();
 }
 
 function onUploadPhotoFormSubmit (evt) {
@@ -69,14 +80,7 @@ function onUploadPhotoFormSubmit (evt) {
 }
 
 uploadImage.addEventListener('change', onUploadImageChange);
-hashtagInput.addEventListener('input', setSubmitButtonAttribute);
-commentInput.addEventListener('input', setSubmitButtonAttribute);
 uploadPhotoForm.addEventListener ('submit', onUploadPhotoFormSubmit);
-
-function setSubmitButtonAttribute () {
-  const isNotValid = !(pristine.validate());
-  submitButton.disabled = isNotValid;
-}
 
 pristine.addValidator(hashtagInput, isHashtagValid,
    'Хэштег должен начинаться с символа # и состоять из букв и чисел');
