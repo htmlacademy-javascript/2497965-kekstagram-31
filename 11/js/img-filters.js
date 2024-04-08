@@ -3,8 +3,14 @@ const effectLevel = document.querySelector('.effect-level__value');
 const sliderContainer = document.querySelector('.img-upload__effect-level');
 const slider = sliderContainer.querySelector('.effect-level__slider');
 const effectList = document.querySelector('.img-upload__effects');
-let filter = 'none';
+const DEFAULT_FILTER = 'none';
+let filter = DEFAULT_FILTER;
 hideSlider();
+
+function resetFilter () {
+  imgPreview.style.filter = DEFAULT_FILTER;
+  hideSlider();
+}
 
 function hideSlider () {
   slider.classList.add('hidden');
@@ -101,6 +107,9 @@ function getCurrentFilter () {
 
 function updateEffectLevel (effect, level) {
   const filterSet = filterSettings[effect];
+  if (effect === 'none') {
+    return `${filterSet.style}`;
+  }
   return `${filterSet.style}(${level}${filterSet.unit || ''})`;
 }
 
@@ -110,18 +119,17 @@ function updateSlider () {
 }
 
 function setFilterOnImg () {
-  imgPreview.classList.remove(`effects__preview--${filter}`);
-  //console.log(filter);
+  resetFilter();
   filter = getCurrentFilter();
   //console.log(filter);
-  if (filter === 'none') {
-    hideSlider();
-  } else {
+  if (filter !== 'none') {
     showSlider();
-    imgPreview.classList.add(`effects__preview--${filter}`);
+    //imgPreview.classList.add(`effects__preview--${filter}`);
     slider.noUiSlider.updateOptions(filterSettings[filter]);
   }
 }
 
 effectList.addEventListener('change', setFilterOnImg);
 slider.noUiSlider.on('update', updateSlider);
+
+export {resetFilter};
