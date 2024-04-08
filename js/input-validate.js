@@ -1,7 +1,7 @@
 const HASHTAG_MAX_COUNT = 5;
 const HASHTAG_MAX_LENGTH = 20;
 const COMMENT_MAX_LENGTH = 140;
-const HASHTAG_VALID_REG = /^#[a-zа-яё0-9]{0,19}$/i;
+const HASHTAG_VALID_REG = /^#[a-zа-яё0-9]{1,19}$/i;
 // let errorMessage = '';
 // function returnError() {
 //   return errorMessage;
@@ -11,7 +11,8 @@ function stringToArray (value) {
 }
 
 function isHashtagValid (value) {
-  return stringToArray(value).every((item) => HASHTAG_VALID_REG.test(item));
+  return stringToArray(value).every((item) => HASHTAG_VALID_REG.test(item)) ||
+  stringToArray(value) === 0;
 }
 
 function numberOfHashtags (value) {
