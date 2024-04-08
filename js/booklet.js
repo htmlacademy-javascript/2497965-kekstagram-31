@@ -6,7 +6,6 @@ let booklet = null;
 function closeBooklet() {
   booklet.remove();
   document.removeEventListener('keydown', onDocumentKeydown);
-  bookletCloseBtn.removeEventListener('click', onBookletCloseBtnClick);
 }
 
 function onBookletClick (evt, cls) {
