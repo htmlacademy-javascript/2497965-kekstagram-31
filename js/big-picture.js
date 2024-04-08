@@ -38,13 +38,16 @@ function openBigImage(currentPictureId, postsData) {
   body.classList.add('modal-open');
 }
 
+function onThumbnailsContainerClick (target, photos) {
+  const currentPicture = target.closest('.picture');
+  if (!currentPicture) return;
+  const id = currentPicture.dataset.pictureId;
+  openBigImage(id, photos);
+}
+
 function initBigPicture (photos) {
-  thumbnailsContainer.addEventListener('click', ({target}) => {
-    const currentPicture = target.closest('.picture');
-    // const id = currentPicture.dataset.pictureId;
-    if (currentPicture.dataset.pictureId) {
-      openBigImage(currentPicture.dataset.pictureId, photos);
-    }
+  thumbnailsContainer.addEventListener('click', (evt) => {
+    onThumbnailsContainerClick(evt.target, photos);
   });
 }
 
