@@ -1,6 +1,6 @@
 import {isEscapeKey} from './util.js';
 import {isCommentValid, isHashtagValid, numberOfHashtags, HASHTAG_MAX_COUNT,
-   COMMENT_MAX_LENGTH} from './input-validate.js';
+   COMMENT_MAX_LENGTH, HASHTAG_MAX_LENGTH, checkHashtagLength} from './input-validate.js';
 import {resetScale} from './render-img-scale.js';
 import {resetFilter} from './img-filters.js';
 
@@ -65,6 +65,11 @@ function setSubmitButtonAttribute () {
   submitButton.disabled = isValid;
 }
 
-pristine.addValidator(hashtagInput, isHashtagValid, 'Хэштег должен начинаться с символа # и состоять из букв и чисел');
-pristine.addValidator(hashtagInput, numberOfHashtags, `Нельзя указать больше ${HASHTAG_MAX_COUNT} хэштегов`);
-pristine.addValidator(commentInput, isCommentValid, `Комментарий не может быть длиннее ${COMMENT_MAX_LENGTH}`);
+pristine.addValidator(hashtagInput, isHashtagValid,
+   'Хэштег должен начинаться с символа # и состоять из букв и чисел');
+pristine.addValidator(hashtagInput, numberOfHashtags,
+  `Нельзя указать больше ${HASHTAG_MAX_COUNT} хэштегов`);
+pristine.addValidator(hashtagInput, checkHashtagLength,
+  `Хэштег не может быть длиннее ${HASHTAG_MAX_LENGTH} символов`);
+pristine.addValidator(commentInput, isCommentValid,
+  `Комментарий не может быть длиннее ${COMMENT_MAX_LENGTH}`);
