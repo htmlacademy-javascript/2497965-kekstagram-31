@@ -11,8 +11,10 @@ function stringToArray (value) {
 }
 
 function isHashtagValid (value) {
-  return stringToArray(value).every((item) => HASHTAG_VALID_REG.test(item)) ||
-  stringToArray(value).length === 0;
+  if (stringToArray(value).length === 0) {
+    return true;
+  }
+  return stringToArray(value).every((item) => HASHTAG_VALID_REG.test(item));
 }
 
 function numberOfHashtags (value) {
