@@ -5,26 +5,26 @@ const DEFAULT_SCALE = 100;
 
 const imgPreview = document.querySelector('.img-upload__preview img');
 const scaleContainer = document.querySelector('.img-upload__scale');
-const scaleSmaller = scaleContainer.querySelector('.scale__control--smaller');
-const scaleBigger = scaleContainer.querySelector('.scale__control--bigger');
+const scaleSmallerBtn = scaleContainer.querySelector('.scale__control--smaller');
+const scaleBiggerBtn = scaleContainer.querySelector('.scale__control--bigger');
 const scaleValue = scaleContainer.querySelector('.scale__control--value');
 let currentPictureScale = DEFAULT_SCALE;
 
-function makeImgSmaller () {
+function onScaleSmallerBtnClick () {
   if (currentPictureScale > MIN) {
     currentPictureScale -= STEP;
     setScale(currentPictureScale);
   }
 }
 
-function makeImgBigger () {
+function onScaleBiggerBtnClick () {
   if (currentPictureScale < MAX) {
     currentPictureScale += STEP;
     setScale(currentPictureScale);
   }
 }
-scaleSmaller.addEventListener('click', makeImgSmaller);
-scaleBigger.addEventListener('click', makeImgBigger);
+scaleSmallerBtn.addEventListener('click', onScaleSmallerBtnClick);
+scaleBiggerBtn.addEventListener('click', onScaleBiggerBtnClick);
 
 function setScale (scale) {
   scaleValue.value = `${scale}%`;

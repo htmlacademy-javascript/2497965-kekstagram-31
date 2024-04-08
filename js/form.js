@@ -4,6 +4,7 @@ import {isCommentValid, isHashtagValid, numberOfHashtags, HASHTAG_MAX_COUNT,
 import {resetScale} from './render-img-scale.js';
 import {resetFilter} from './img-filters.js';
 import {sendData} from './api.js';
+import {showBooklet} from './booklet.js';
 
 const uploadPhotoForm = document.querySelector('.img-upload__form');
 const uploadImage = uploadPhotoForm.querySelector('#upload-file');
@@ -64,11 +65,17 @@ function unblockSubmitButton () {
 }
 
 async function uploadData () {
-  const formData = new FormData(uploadPhotoForm);
-  blockSubmitButton();
-  await sendData (formData);
-  closeForm();
-  unblockSubmitButton();
+  try {
+    const formData = new FormData(uploadPhotoForm);
+    blockSubmitButton();
+    await sendData (formData);
+    closeForm();
+    unblockSubmitButton();
+    showBooklet('success');
+  } catch {
+    showBooklet('error');
+  }
+
 }
 
 function onUploadPhotoFormSubmit (evt) {
