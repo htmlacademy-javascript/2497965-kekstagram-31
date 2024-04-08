@@ -1,5 +1,5 @@
 import {isEscapeKey} from './util.js';
-import {isCommentValid, isHashtagValid, returnError, COMMENT_MAX_LENGTH} from './input-validate.js';
+import {isCommentValid, isHashtagValid, COMMENT_MAX_LENGTH} from './input-validate.js';
 import {resetScale} from './render-img-scale.js';
 import {resetFilter} from './img-filters.js';
 
