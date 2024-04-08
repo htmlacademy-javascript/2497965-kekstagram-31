@@ -64,5 +64,5 @@ function setSubmitButtonAttribute () {
   submitButton.disabled = isValid;
 }
 
-pristine.addValidator(hashtagInput, isHashtagValid, returnError);
+pristine.addValidator(hashtagInput, isHashtagValid, 'Хэштег должен начинаться с символа # и состоять из букв и чисел');
 pristine.addValidator(commentInput, isCommentValid, `Комментарий не может быть длиннее ${COMMENT_MAX_LENGTH}`);
