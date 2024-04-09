@@ -31,6 +31,7 @@ function closeForm() {
   resetScale();
   resetEffect();
   pristine.reset();
+  unblockSubmitButton();
 }
 
 function onUploadImageChange() {

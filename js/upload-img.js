@@ -10,7 +10,7 @@ function onPhotoChooserChange () {
   if (matches) {
     photoPreview.src = URL.createObjectURL(file);
     effectsPreviews.forEach((preview) => {
-      preview.style.backgroundImage = URL.createObjectURL(file);
+      preview.style.backgroundImage = photoPreview.src;
     })
   }
 }
