@@ -89,7 +89,7 @@ uploadImage.addEventListener('change', onUploadImageChange);
 uploadPhotoForm.addEventListener ('submit', onUploadPhotoFormSubmit);
 
 pristine.addValidator(hashtagInput, validate.isHashtagValid,
-   'Хэштег должен начинаться с символа # и состоять из букв и чисел');
+  'Хэштег должен начинаться с символа # и состоять из букв и чисел');
 pristine.addValidator(hashtagInput, validate.numberOfHashtags,
   `Нельзя указать больше ${validate.HASHTAG_MAX_COUNT} хэштегов`);
 pristine.addValidator(hashtagInput, validate.checkHashtagLength,

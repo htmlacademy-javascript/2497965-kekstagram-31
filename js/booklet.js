@@ -1,4 +1,4 @@
-import {isEscapeKey} from "./util";
+import {isEscapeKey} from './util.js';
 
 const bookletContainer = document.querySelector('body');
 let booklet = null;

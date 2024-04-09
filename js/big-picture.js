@@ -40,7 +40,9 @@ function openBigImage(currentPictureId, postsData) {
 
 function onThumbnailsContainerClick (target, photos) {
   const currentPicture = target.closest('.picture');
-  if (!currentPicture) return;
+  if (!currentPicture) {
+    return;
+  }
   const id = currentPicture.dataset.pictureId;
   openBigImage(id, photos);
 }

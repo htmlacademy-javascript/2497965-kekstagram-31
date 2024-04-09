@@ -1,5 +1,5 @@
 export const HASHTAG_MAX_COUNT = 5;
-export  const HASHTAG_MAX_LENGTH = 20;
+export const HASHTAG_MAX_LENGTH = 20;
 export const COMMENT_MAX_LENGTH = 140;
 const HASHTAG_VALID_REG = /^#[a-zа-яё0-9]{1,19}$/i;
 
