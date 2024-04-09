@@ -19,7 +19,7 @@ function onFilterRandomClick (photos, evt) {
 
 function onFilterDiscussedClick (photos, evt) {
   const pictures = photos.sort((a, b) => b.comments.length - a.comments.length);
-  createPosts(pictures);
+  createPostsWithDebounce(pictures);
   setActiveFilter(evt);
 }
 
