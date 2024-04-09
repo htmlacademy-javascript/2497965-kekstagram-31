@@ -15,7 +15,8 @@ function onFilterRandomClick (photos) {
 }
 
 function onFilterDiscussedClick (photos) {
-  console.log('discussed', photos);
+  const pictures = photos.sort((a, b) => b.comments.length - a.comments.length);
+  console.log('discussed', pictures);
 }
 
 export function initFliters (photos) {
