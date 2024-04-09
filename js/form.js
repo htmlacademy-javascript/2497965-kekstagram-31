@@ -30,6 +30,7 @@ function closeForm() {
   hashtagInput.value = '';
   resetScale();
   resetEffect();
+  pristine.reset();
 }
 
 function onUploadImageChange() {
@@ -60,7 +61,7 @@ function blockSubmitButton () {
 }
 
 function unblockSubmitButton () {
-  submitButton.disabled = false;
+  submitButton.removeAttribute('disabled');
 }
 
 async function uploadData () {
