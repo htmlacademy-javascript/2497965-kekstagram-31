@@ -10,7 +10,7 @@ function onFilterDefaultClick (photos) {
 }
 
 function onFilterRandomClick (photos) {
-  const pictures = shuffle(photos).slice(0, 10);
+  const pictures = shuffle(photos);
   console.log('random', pictures);
 }
 
