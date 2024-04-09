@@ -7,4 +7,4 @@ function showDataError () {
   setTimeout(() => errorTemplate.remove(), REMOVE_ERROR_TIMEOUT);
 }
 
-export {showDataError}
+export {showDataError};

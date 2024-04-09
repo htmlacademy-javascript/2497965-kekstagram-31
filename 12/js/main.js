@@ -7,7 +7,7 @@ import {initBigPicture} from './big-picture.js';
 import {showDataError} from './data-error.js';
 
 try {
-  const photos = await getData()
+  const photos = await getData();
   createPosts(photos);
   initBigPicture(photos);
 } catch {
