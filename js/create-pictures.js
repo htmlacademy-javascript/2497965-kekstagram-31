@@ -22,7 +22,7 @@ function removePosts () {
 }
 
 function createPosts(posts) {
-  removePosts()
+  removePosts();
   posts.forEach((item) => {
     const postTemplate = fillTemplate(item);
     pictureFragment.appendChild(postTemplate);
