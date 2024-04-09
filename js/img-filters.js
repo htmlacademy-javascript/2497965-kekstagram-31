@@ -25,9 +25,8 @@ function onFilterDiscussedClick (photos, evt) {
 
 function setActiveFilter (evt) {
   const activeFilter = filtersContainer.querySelector('.img-filters__button--active');
-  activeFilter.classList.remove('.img-filters__button--active');
-  console.log(activeFilter.classList);
-  evt.target.classList.add('.img-filters__button--active');
+  activeFilter.classList.remove('img-filters__button--active');
+  evt.target.classList.add('img-filters__button--active');
 }
 
 export function initFliters (photos) {
