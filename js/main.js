@@ -7,6 +7,7 @@ import {createPosts} from './create-pictures.js';
 import {initBigPicture} from './big-picture.js';
 import {showDataError} from './data-error.js';
 import {initFliters} from './img-filters.js';
+import './upload-img.js';
 
 try {
   const photos = await getData();
