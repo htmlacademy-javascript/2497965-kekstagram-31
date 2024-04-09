@@ -1,5 +1,3 @@
-//import {postsData} from './data.js';
-
 const picturesTemplate = document.querySelector('#picture')
   .content.querySelector('.picture');
 const pictureContainer = document.querySelector('.pictures');
@@ -15,13 +13,16 @@ function fillTemplate(posts) {
   return pictureElement;
 }
 
+function removePosts () {
+  const pictures = pictureContainer.querySelector('.picture');
+  pictures.forEach((picture) => picture.remove());
+}
+
 export function createPosts(posts) {
+  removePosts()
   posts.forEach((item) => {
     const postTemplate = fillTemplate(item);
     pictureFragment.appendChild(postTemplate);
   });
   pictureContainer.appendChild(pictureFragment);
 }
-
-//createPosts(postsData);
-
