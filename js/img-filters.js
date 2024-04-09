@@ -11,27 +11,27 @@ function onFilterDefaultClick (photos, btn) {
   setActiveFilter(btn);
 }
 
-function onFilterRandomClick (photos, btn) {
+function onFilterRandomClick (photos, evt) {
   const pictures = shuffle(photos).slice(0, 10);
   createPosts(pictures);
-  setActiveFilter(btn);
+  setActiveFilter(evt);
 }
 
-function onFilterDiscussedClick (photos, btn) {
+function onFilterDiscussedClick (photos, evt) {
   const pictures = photos.sort((a, b) => b.comments.length - a.comments.length);
   createPosts(pictures);
-  setActiveFilter(btn);
+  setActiveFilter(evt);
 }
 
-function setActiveFilter (btn) {
+function setActiveFilter (evt) {
   const activeFilter = filtersContainer.querySelector('.img-filters__button--active');
   activeFilter.classList.remove('.img-filters__button--active');
-  btn.classList.add('.img-filters__button--active');
+  evt.target.classList.add('.img-filters__button--active');
 }
 
 export function initFliters (photos) {
   filtersContainer.classList.remove('img-filters--inactive');
-  filterDefault.addEventListener('click',() => onFilterDefaultClick(photos, filterDefault));
-  filterRandom.addEventListener('click',() => onFilterRandomClick([...photos], filterRandom));
-  filterDiscussed.addEventListener('click',() => onFilterDiscussedClick([...photos], filterDiscussed));
+  filterDefault.addEventListener('click',(evt) => onFilterDefaultClick(photos, evt));
+  filterRandom.addEventListener('click',(evt) => onFilterRandomClick([...photos], evt));
+  filterDiscussed.addEventListener('click',(evt) => onFilterDiscussedClick([...photos], evt));
 }
