@@ -11,4 +11,4 @@ function onPhotoChooserChange () {
   }
 }
 
-photoChooser.addEventListener('change', onPhotoChooserChange)
+photoChooser.addEventListener('change', onPhotoChooserChange);
