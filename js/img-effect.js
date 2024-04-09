@@ -9,7 +9,7 @@ hideSlider();
 
 function resetEffect () {
   imgPreview.style.filter = DEFAULT_EFFECT;
-  effectList.querySelector(`#${DEFAULT_EFFECT}`).checked = true;
+  effectList.querySelector(`#effect-${DEFAULT_EFFECT}`).checked = true;
   hideSlider();
 }
 
