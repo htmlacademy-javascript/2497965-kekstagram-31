@@ -14,6 +14,6 @@ try {
   initBigPicture(photos);
   initFliters(photos);
 } catch {
-  console.log(Error);
+  console.log(Error.name);
   showDataError();
 }

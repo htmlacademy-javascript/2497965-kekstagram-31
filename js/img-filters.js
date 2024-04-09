@@ -23,6 +23,6 @@ function onFilterDiscussedClick (photos) {
 export function initFliters (photos) {
   filtersContainer.classList.remove('img-filters--inactive');
   filterDefault.addEventListener('click',() => onFilterDefaultClick(photos));
-  filterRandom.addEventListener('click',() => onFilterRandomClick(photos));
-  filterDiscussed.addEventListener('click',() => onFilterDiscussedClick(photos));
+  filterRandom.addEventListener('click',() => onFilterRandomClick([...photos]));
+  filterDiscussed.addEventListener('click',() => onFilterDiscussedClick([...photos]));
 }
