@@ -1,7 +1,7 @@
 import {isEscapeKey} from './util.js';
 import * as validate from './input-validate.js';
 import {resetScale} from './render-img-scale.js';
-import {resetFilter} from './img-filters.js';
+import {resetEffect} from './img-effect.js';
 import {sendData} from './api.js';
 import {showBooklet} from './booklet.js';
 
@@ -29,7 +29,7 @@ function closeForm() {
   commentInput.value = '';
   hashtagInput.value = '';
   resetScale();
-  resetFilter();
+  resetEffect();
 }
 
 function onUploadImageChange() {
