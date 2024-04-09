@@ -1,7 +1,10 @@
+import {debounce} from './util.js';
+
 const picturesTemplate = document.querySelector('#picture')
   .content.querySelector('.picture');
 const pictureContainer = document.querySelector('.pictures');
 const pictureFragment = document.createDocumentFragment();
+const TIMEOUT = 500;
 
 function fillTemplate(posts) {
   const pictureElement = picturesTemplate.cloneNode(true);
@@ -18,7 +21,7 @@ function removePosts () {
   pictures.forEach((picture) => picture.remove());
 }
 
-export function createPosts(posts) {
+function createPosts(posts) {
   removePosts()
   posts.forEach((item) => {
     const postTemplate = fillTemplate(item);
@@ -26,3 +29,7 @@ export function createPosts(posts) {
   });
   pictureContainer.appendChild(pictureFragment);
 }
+
+const createPostsWithDebounce = debounce(createPosts, TIMEOUT);
+
+export {createPosts, createPostsWithDebounce};

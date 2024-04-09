@@ -32,4 +32,12 @@ function shuffle(array) {
   return array;
 }
 
-export {getRandomInteger, getIdNumber, isEscapeKey, shuffle};
+function debounce(func, ms) {
+  let timeout;
+  return function() {
+    clearTimeout(timeout);
+    timeout = setTimeout(() => func.apply(this, arguments), ms);
+  };
+}
+
+export {getRandomInteger, getIdNumber, isEscapeKey, shuffle, debounce};

@@ -1,5 +1,5 @@
 import {shuffle} from './util.js';
-import {createPosts} from './create-pictures.js';
+import {createPostsWithDebounce} from './create-pictures.js';
 
 const filtersContainer = document.querySelector('.img-filters');
 const filterDefault = filtersContainer.querySelector('#filter-default');
@@ -7,13 +7,13 @@ const filterRandom = filtersContainer.querySelector('#filter-random');
 const filterDiscussed = filtersContainer.querySelector('#filter-discussed');
 
 function onFilterDefaultClick (photos, evt) {
-  createPosts(photos);
+  createPostsWithDebounce(photos);
   setActiveFilter(evt);
 }
 
 function onFilterRandomClick (photos, evt) {
   const pictures = shuffle(photos).slice(0, 10);
-  createPosts(pictures);
+  createPostsWithDebounce(pictures);
   setActiveFilter(evt);
 }
 
