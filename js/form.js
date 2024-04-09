@@ -1,7 +1,7 @@
 import {isEscapeKey} from './util.js';
 import * as validate from './input-validate.js';
 import {resetScale} from './render-img-scale.js';
-import {resetEffect} from './img-effect.js';
+import {resetEffect, DEFAULT_EFFECT} from './img-effect.js';
 import {sendData} from './api.js';
 import {showBooklet} from './booklet.js';
 
@@ -30,6 +30,7 @@ function closeForm() {
   hashtagInput.value = '';
   resetScale();
   resetEffect();
+  document.querySelector(`#effect-${DEFAULT_EFFECT}`).checked = true;
   pristine.reset();
   unblockSubmitButton();
 }

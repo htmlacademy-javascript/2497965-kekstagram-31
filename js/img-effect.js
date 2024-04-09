@@ -9,7 +9,6 @@ hideSlider();
 
 function resetEffect () {
   imgPreview.style.filter = DEFAULT_EFFECT;
-  effectList.querySelector(`#effect-${DEFAULT_EFFECT}`).checked = true;
   hideSlider();
 }
 
@@ -131,4 +130,4 @@ function onEffectListChange () {
 effectList.addEventListener('change', onEffectListChange);
 slider.noUiSlider.on('update', onSliderUpdate);
 
-export {resetEffect};
+export {resetEffect, DEFAULT_EFFECT};
