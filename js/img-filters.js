@@ -7,20 +7,20 @@ const filterRandom = filtersContainer.querySelector('#filter-random');
 const filterDiscussed = filtersContainer.querySelector('#filter-discussed');
 
 function onFilterDefaultClick (photos, evt) {
-  createPostsWithDebounce(photos);
   setActiveFilter(evt);
+  createPostsWithDebounce(photos);
 }
 
 function onFilterRandomClick (photos, evt) {
   const pictures = shuffle(photos).slice(0, 10);
-  createPostsWithDebounce(pictures);
   setActiveFilter(evt);
+  createPostsWithDebounce(pictures);
 }
 
 function onFilterDiscussedClick (photos, evt) {
   const pictures = photos.sort((a, b) => b.comments.length - a.comments.length);
-  createPostsWithDebounce(pictures);
   setActiveFilter(evt);
+  createPostsWithDebounce(pictures);
 }
 
 function setActiveFilter (evt) {
