@@ -10,7 +10,8 @@ function onFilterDefaultClick (photos) {
 }
 
 function onFilterRandomClick (photos) {
-  console.log('random', shuffle(photos).slice(0, 10));
+  const pictures = shuffle(photos).slice(0, 10);
+  console.log('random', pictures);
 }
 
 function onFilterDiscussedClick (photos) {
