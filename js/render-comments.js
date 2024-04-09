@@ -9,7 +9,7 @@ const shownComments = container.querySelector('.social__comment-shown-count');
 const totalComments = container.querySelector('.social__comment-total-count');
 commentsList.innerHTML = '';
 
-function loadNextComments() {
+function onLoadCommentsButtonClick() {
   const commentsFragment = document.createDocumentFragment();
   const renderedComments = comments.slice(count, count + COMMENT_STEP);
   const shownCommentsCount = renderedComments.length + count;
@@ -36,13 +36,13 @@ function clearComments() {
   count = 0;
   commentsList.innerHTML = '';
   loadCommentsButton.classList.remove('hidden');
-  loadCommentsButton.removeEventListener('click', loadNextComments);
+  loadCommentsButton.removeEventListener('click', onLoadCommentsButtonClick);
 }
 
 function renderComments(currentComments) {
   comments = currentComments;
-  loadNextComments();
-  loadCommentsButton.addEventListener('click', loadNextComments);
+  onLoadCommentsButtonClick();
+  loadCommentsButton.addEventListener('click', onLoadCommentsButtonClick);
 }
 
 export {clearComments, renderComments};

@@ -1,5 +1,5 @@
 import {isEscapeKey} from './util.js';
-import {postsData} from './data.js';
+// import {postsData} from './data.js';
 import {clearComments, renderComments} from './render-comments.js';
 
 const thumbnailsContainer = document.querySelector('.pictures');
@@ -10,32 +10,25 @@ const imageDescription = container.querySelector('.big-picture__social').querySe
 const closeButton = container.querySelector('.big-picture__cancel');
 const body = document.querySelector('body');
 
-thumbnailsContainer.addEventListener('click', (evt) => {
-  const currentPicture = evt.target.closest('.picture');
-  if (currentPicture) {
-    openBigImage(currentPicture.dataset.pictureId);
-  }
-});
-
 function onDocumentKeydown(evt) {
   if (isEscapeKey(evt)) {
     evt.preventDefault();
-    closeBigImage();
+    onCloseButtonClick();
   }
 }
 
-function closeBigImage() {
+function onCloseButtonClick() {
   container.classList.add('hidden');
   body.classList.remove('modal-open');
   clearComments();
   document.removeEventListener('keydown', onDocumentKeydown);
-  closeButton.removeEventListener('click', closeBigImage);
+  closeButton.removeEventListener('click', onCloseButtonClick);
 }
 
-function openBigImage(currentPictureId) {
+function openBigImage(currentPictureId, postsData) {
   const currentPicture = postsData.find((post) => post.id === Number(currentPictureId));
   document.addEventListener('keydown', onDocumentKeydown);
-  closeButton.addEventListener('click', closeBigImage);
+  closeButton.addEventListener('click', onCloseButtonClick);
   bigImage.src = currentPicture.url;
   bigImage.alt = currentPicture.description;
   likes.textContent = currentPicture.likes;
@@ -45,3 +38,19 @@ function openBigImage(currentPictureId) {
   body.classList.add('modal-open');
 }
 
+function onThumbnailsContainerClick (target, photos) {
+  const currentPicture = target.closest('.picture');
+  if (!currentPicture) {
+    return;
+  }
+  const id = currentPicture.dataset.pictureId;
+  openBigImage(id, photos);
+}
+
+function initBigPicture (photos) {
+  thumbnailsContainer.addEventListener('click', (evt) => {
+    onThumbnailsContainerClick(evt.target, photos);
+  });
+}
+
+export {initBigPicture};

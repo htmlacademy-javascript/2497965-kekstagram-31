@@ -1,7 +1,9 @@
 import {isEscapeKey} from './util.js';
-import {isCommentValid, isHashtagValid, returnError, COMMENT_MAX_LENGTH} from './input-validate.js';
+import * as validate from './input-validate.js';
 import {resetScale} from './render-img-scale.js';
 import {resetFilter} from './img-filters.js';
+import {sendData} from './api.js';
+import {showBooklet} from './booklet.js';
 
 const uploadPhotoForm = document.querySelector('.img-upload__form');
 const uploadImage = uploadPhotoForm.querySelector('#upload-file');
@@ -30,7 +32,7 @@ function closeForm() {
   resetFilter();
 }
 
-function openForm() {
+function onUploadImageChange() {
   renderPhotoForm.classList.remove('hidden');
   body.classList.add('modal-open');
   closeButton.addEventListener('click', closeForm);
@@ -53,16 +55,46 @@ function isFieldOnFocus () {
   document.activeElement === commentInput;
 }
 
-uploadImage.addEventListener('change', openForm);
-
-hashtagInput.addEventListener('input', setSubmitButtonAttribute);
-
-commentInput.addEventListener('input', setSubmitButtonAttribute);
-
-function setSubmitButtonAttribute () {
-  const isValid = !(pristine.validate());
-  submitButton.disabled = isValid;
+function blockSubmitButton () {
+  submitButton.disabled = true;
 }
 
-pristine.addValidator(hashtagInput, isHashtagValid, returnError);
-pristine.addValidator(commentInput, isCommentValid, `Комментарий не может быть длиннее ${COMMENT_MAX_LENGTH}`);
+function unblockSubmitButton () {
+  submitButton.disabled = false;
+}
+
+async function uploadData () {
+  try {
+    const formData = new FormData(uploadPhotoForm);
+    blockSubmitButton();
+    await sendData (formData);
+    closeForm();
+    unblockSubmitButton();
+    showBooklet('success');
+  } catch {
+    showBooklet('error');
+  }
+
+}
+
+function onUploadPhotoFormSubmit (evt) {
+  evt.preventDefault();
+  const isValid = pristine.validate();
+  if (isValid) {
+    uploadData();
+  }
+}
+
+uploadImage.addEventListener('change', onUploadImageChange);
+uploadPhotoForm.addEventListener ('submit', onUploadPhotoFormSubmit);
+
+pristine.addValidator(hashtagInput, validate.isHashtagValid,
+  'Хэштег должен начинаться с символа # и состоять из букв и чисел');
+pristine.addValidator(hashtagInput, validate.numberOfHashtags,
+  `Нельзя указать больше ${validate.HASHTAG_MAX_COUNT} хэштегов`);
+pristine.addValidator(hashtagInput, validate.checkHashtagLength,
+  `Хэштег не может быть длиннее ${validate.HASHTAG_MAX_LENGTH} символов`);
+pristine.addValidator(hashtagInput, validate.isHashtagUnique,
+  'Хэштег должен быть уникален');
+pristine.addValidator(commentInput, validate.isCommentValid,
+  `Комментарий не может быть длиннее ${validate.COMMENT_MAX_LENGTH} символов`);

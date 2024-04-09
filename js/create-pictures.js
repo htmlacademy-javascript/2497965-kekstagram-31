@@ -1,4 +1,4 @@
-import {postsData} from './data.js';
+//import {postsData} from './data.js';
 
 const picturesTemplate = document.querySelector('#picture')
   .content.querySelector('.picture');
@@ -15,7 +15,7 @@ function fillTemplate(posts) {
   return pictureElement;
 }
 
-function createPosts(posts) {
+export function createPosts(posts) {
   posts.forEach((item) => {
     const postTemplate = fillTemplate(item);
     pictureFragment.appendChild(postTemplate);
@@ -23,5 +23,5 @@ function createPosts(posts) {
   pictureContainer.appendChild(pictureFragment);
 }
 
-createPosts(postsData);
+//createPosts(postsData);
 
