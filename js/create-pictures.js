@@ -14,7 +14,7 @@ function fillTemplate(posts) {
 }
 
 function removePosts () {
-  const pictures = pictureContainer.querySelector('.picture');
+  const pictures = pictureContainer.querySelectorAll('.picture');
   pictures.forEach((picture) => picture.remove());
 }
 

@@ -8,12 +8,11 @@ import {initBigPicture} from './big-picture.js';
 import {showDataError} from './data-error.js';
 import {initFliters} from './img-filters.js';
 
-// try {
+try {
   const photos = await getData();
   createPosts(photos);
   initBigPicture(photos);
   initFliters(photos);
-// } catch {
-//   console.log(Error.type);
-//   showDataError();
-// }
+} catch {
+  showDataError();
+}
