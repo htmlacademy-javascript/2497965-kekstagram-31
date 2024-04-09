@@ -11,7 +11,7 @@ function onPhotoChooserChange () {
     photoPreview.src = URL.createObjectURL(file);
     effectsPreviews.forEach((preview) => {
       preview.style.backgroundImage = `url('${photoPreview.src}')`;
-    })
+    });
   }
 }
 
