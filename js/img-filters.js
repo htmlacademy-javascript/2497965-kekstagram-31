@@ -6,9 +6,9 @@ const filterDefault = filtersContainer.querySelector('#filter-default');
 const filterRandom = filtersContainer.querySelector('#filter-random');
 const filterDiscussed = filtersContainer.querySelector('#filter-discussed');
 
-function onFilterDefaultClick (photos, btn) {
+function onFilterDefaultClick (photos, evt) {
   createPosts(photos);
-  setActiveFilter(btn);
+  setActiveFilter(evt);
 }
 
 function onFilterRandomClick (photos, evt) {
