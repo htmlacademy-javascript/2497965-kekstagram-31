@@ -8,16 +8,25 @@ const filterDiscussed = filtersContainer.querySelector('#filter-discussed');
 
 function onFilterDefaultClick (photos) {
   createPosts(photos);
+  setActiveFilter(evt);
 }
 
 function onFilterRandomClick (photos) {
   const pictures = shuffle(photos).slice(0, 10);
   createPosts(pictures);
+  setActiveFilter(evt);
 }
 
 function onFilterDiscussedClick (photos) {
   const pictures = photos.sort((a, b) => b.comments.length - a.comments.length);
   createPosts(pictures);
+  setActiveFilter(evt);
+}
+
+function setActiveFilter (evt) {
+  const activeFilter = filtersContainer.querySelector('.img-filters__button--active');
+  activeFilter.classList.remove('.img-filters__button--active');
+  evt.target.classList.add('.img-filters__button--active');
 }
 
 export function initFliters (photos) {
