@@ -72,8 +72,8 @@ async function uploadData () {
     blockSubmitButton();
     await sendData (formData);
     closeForm();
-    unblockSubmitButton();
     showBooklet('success');
+    unblockSubmitButton();
   } catch {
     document.removeEventListener('keydown', onDocumentKeydown);
     showBooklet('error');
