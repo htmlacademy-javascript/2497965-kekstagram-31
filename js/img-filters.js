@@ -5,6 +5,7 @@ const filtersContainer = document.querySelector('.img-filters');
 const filterDefault = filtersContainer.querySelector('#filter-default');
 const filterRandom = filtersContainer.querySelector('#filter-random');
 const filterDiscussed = filtersContainer.querySelector('#filter-discussed');
+const RANDOM_PHOTO_COUNT = 10;
 
 function onFilterDefaultClick (photos, evt) {
   setActiveFilter(evt);
@@ -12,7 +13,7 @@ function onFilterDefaultClick (photos, evt) {
 }
 
 function onFilterRandomClick (photos, evt) {
-  const pictures = shuffle(photos).slice(0, 10);
+  const pictures = shuffle(photos).slice(0, RANDOM_PHOTO_COUNT);
   setActiveFilter(evt);
   createPostsWithDebounce(pictures);
 }
