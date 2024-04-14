@@ -63,7 +63,7 @@ function blockSubmitButton () {
 }
 
 function unblockSubmitButton () {
-  submitButton.disabled = false;
+  submitButton.removeAttribute('disabled');
 }
 
 async function uploadData () {
