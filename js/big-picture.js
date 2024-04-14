@@ -1,5 +1,4 @@
 import {isEscapeKey} from './util.js';
-// import {postsData} from './data.js';
 import {clearComments, renderComments} from './render-comments.js';
 
 const thumbnailsContainer = document.querySelector('.pictures');
