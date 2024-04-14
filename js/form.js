@@ -59,7 +59,7 @@ function isFieldOnFocus () {
 }
 
 function blockSubmitButton () {
-  submitButton.disabled = true;
+  submitButton.setAttribute('disabled');
 }
 
 function unblockSubmitButton () {
