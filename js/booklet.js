@@ -27,7 +27,7 @@ function showBooklet (cls) {
   booklet = document.querySelector(`#${cls}`).content.querySelector(`.${cls}`);
   bookletContainer.insertAdjacentElement('beforeend', booklet);
   const bookletCloseBtn = booklet.querySelector(`.${cls}__button`);
-  document.removeEventListener('keydown', onDocumentKeydown);
+
   booklet.addEventListener('click', (evt) => onBookletClick(evt, cls));
   bookletCloseBtn.addEventListener('click', onBookletClick);
   document.addEventListener('keydown', onDocumentKeydown);
