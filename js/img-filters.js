@@ -5,22 +5,23 @@ const filtersContainer = document.querySelector('.img-filters');
 const filterDefault = filtersContainer.querySelector('#filter-default');
 const filterRandom = filtersContainer.querySelector('#filter-random');
 const filterDiscussed = filtersContainer.querySelector('#filter-discussed');
+const RANDOM_PHOTO_COUNT = 10;
 
 function onFilterDefaultClick (photos, evt) {
-  createPostsWithDebounce(photos);
   setActiveFilter(evt);
+  createPostsWithDebounce(photos);
 }
 
 function onFilterRandomClick (photos, evt) {
-  const pictures = shuffle(photos).slice(0, 10);
-  createPostsWithDebounce(pictures);
+  const pictures = shuffle(photos).slice(0, RANDOM_PHOTO_COUNT);
   setActiveFilter(evt);
+  createPostsWithDebounce(pictures);
 }
 
 function onFilterDiscussedClick (photos, evt) {
   const pictures = photos.sort((a, b) => b.comments.length - a.comments.length);
-  createPostsWithDebounce(pictures);
   setActiveFilter(evt);
+  createPostsWithDebounce(pictures);
 }
 
 function setActiveFilter (evt) {

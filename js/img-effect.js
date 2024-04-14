@@ -130,4 +130,4 @@ function onEffectListChange () {
 effectList.addEventListener('change', onEffectListChange);
 slider.noUiSlider.on('update', onSliderUpdate);
 
-export {resetEffect};
+export {resetEffect, DEFAULT_EFFECT};
