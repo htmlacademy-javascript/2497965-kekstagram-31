@@ -77,6 +77,7 @@ async function uploadData () {
   } catch {
     document.removeEventListener('keydown', onDocumentKeydown);
     showBooklet('error');
+    unblockSubmitButton();
   }
 
 }
